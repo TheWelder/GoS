@@ -50,10 +50,11 @@ function AfterObjectLoopEvent(myHer0)
 							CastSkillShot(_W,WPred.PredPos.x,WPred.PredPos.y,WPred.PredPos.z)
 						end
 					if ValidTarget(target,1000) then
-						local EPred = GetPredictionForPlayer(myHeroPos,target,GetMoveSpeed(target),1875,250,1000,55,true,true)
+						local mousepos = GetMousePos()
+						local EPred = GetPredictionForPlayer(myHeroPos,mousepos,GetMoveSpeed(target),1875,250,1000,55,true,true)
 						if CanUseSpell(myHero,1000) == READY then
 						
-							CastSkillShot(_E,EPred.PredPos.x,EPred.PredPos.y,EPred.PredPos.z)
+							CastSkillShot(_E,mousepos.x,mousepos.y,mousepos.z)
 							--CastTargetSpell(GetMousePos())
 						end
 						
