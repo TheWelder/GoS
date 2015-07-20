@@ -18,7 +18,6 @@ function AfterObjectLoopEvent(myHer0)
 	local champname = GetObjectName(myHero)
 	target = GetCurrentTarget()
 	myHeroPos = GetOrigin(myHero)
-	--DrawText(string.format("TeamAround = %s", GetTeamAround(myHeroPos, 5000)),24,0,0,0xff00ff00);
 	if EnemiesAround(myHeroPos, 5000) > 0 then
 		local hero_origin = myHeroPos
 		local myscreenpos = WorldToScreen(1,hero_origin.x,hero_origin.y,hero_origin.z)
@@ -31,10 +30,6 @@ function AfterObjectLoopEvent(myHer0)
 			end
 	end		
 		if "Graves" == GetObjectName(myHer0) then
-			--local hero_origin = myHeroPos
-			--local myscreenpos = WorldToScreen(1,hero_origin.x,hero_origin.y,hero_origin.z)
-				--if myscreenpos.flag then
-					--DrawText(string.format("%s by TheWelder Loaded ", GetObjectName(myHero)),24,myscreenpos.x-100,myscreenpos.y,0xffffff00)	
 			DrawText(string.format("%s by TheWelder Loaded ", GetObjectName(myHero)),24,750,50,0xff00ff00);
 			DrawDmgOverHpBar(target,GetCurrentHP(target),120,60,0xffffffff);
 				if KeyIsDown(0x20) then 
@@ -50,12 +45,9 @@ function AfterObjectLoopEvent(myHer0)
 							CastSkillShot(_W,WPred.PredPos.x,WPred.PredPos.y,WPred.PredPos.z)
 						end
 					if ValidTarget(target,1000) then
-						local mousepos = GetMousePos()
-						local EPred = GetPredictionForPlayer(myHeroPos,mousepos,GetMoveSpeed(target),1875,250,1000,55,true,true)
+						local mousePos = GetMousePos()
 						if CanUseSpell(myHero,1000) == READY then
-						
-							CastSkillShot(_E,mousepos.x,mousepos.y,mousepos.z)
-							--CastTargetSpell(GetMousePos())
+							CastSkillShot(_E,mousePos.x,mousePos.y,mousePos.z)
 						end
 						
 					end	
@@ -70,10 +62,6 @@ function AfterObjectLoopEvent(myHer0)
 				end
 			end
 		else
-			--local hero_origin = myHeroPos
-			--local myscreenpos = WorldToScreen(1,hero_origin.x,hero_origin.y,hero_origin.z)
-				--if myscreenpos.flag then
-					--DrawText(string.format("%s not suported", GetObjectName(myHero)),24,myscreenpos.x,myscreenpos.y,0xffffff00)
 			DrawText(string.format("%s not suported", GetObjectName(myHero)),24,750,50,0xffffff00)
 		end
 	
