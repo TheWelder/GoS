@@ -1,4 +1,3 @@
--- CONSTANTS
 require('Inspired')
 require('IMenu')
 require('IWalk')
