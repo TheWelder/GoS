@@ -1,6 +1,7 @@
 require('Inspired')
+require('twgank')
 
---ver 1.0.0.0
+--ver 1.0.0.1, added GetCloserIsnecToMinion
 --api 0.0.4
 --Made by TheWelder
 
@@ -8,10 +9,9 @@ local myHero = nil
 local champName = nil
 local target = nil
 
---Menu Values
 AddInfo("leesin", "LeStar:")
 AddButton("Q", "Use Q", true)
---AddButton("W", "Use W", true)
+AddButton("W", "Use W", true)
 AddButton("E", "Use E", true)
 AddButton("R", "Use R", true)
 AddInfo("util", "Utilities")
@@ -25,33 +25,12 @@ target = GetCurrentTarget()
 local targetPos = GetOrigin(target)
 local Obj_Type = GetObjectType(target)
 
---local getMinionInsec = ClosestMinion(heroToMinion,MINION_ALLY)
---local heroToMinion = GetDistance(GetOrigin(MINION_ALLY),GetOrigin(myHero))
-
---Damage Calculations
 local allDMG = GetBonusDmg(myHero)+GetBaseDamage(myHero)
 local perc90 = (allDMG*90)/100
 local Qdmg = (GetCastLevel(myHero,_Q)*30)+50+perc90
 local Edmg =(GetCastLevel(myHero,_E)*35)+25+allDMG
 local Rdmg = (GetCastLevel(myHero,_R)*200)+(allDMG*2)
 
-	if GetButtonValue("Gank") then
---Enemie Count
-		if EnemiesAround(myHeroPos, 5000) > 0 then
-			local hero_origin = myHeroPos
-			local myscreenpos = WorldToScreen(1,hero_origin.x,hero_origin.y,hero_origin.z)
-			if myscreenpos.flag then
-				if EnemiesAround(myHeroPos, 5000) < 3 then
-				DrawText(string.format("ENEMIES = %s", EnemiesAround(myHeroPos, 5000)),24,myscreenpos.x-100,myscreenpos.y,0xff00ff00)
-
-					else 
-					DrawText(string.format("CAREFULL = %s", EnemiesAround(myHeroPos, 5000)),24,myscreenpos.x-100,myscreenpos.y,0xffff0000)
-				end
-			end
-		end	
-	end
-
-	--Champion Checker
 	if champName == "LeeSin" then
 		DrawText(string.format("%s LE STAR", GetObjectName(myHero)),24,750,50,0xff00ff00);
 		if KeyIsDown(0x20) then
@@ -65,14 +44,16 @@ local Rdmg = (GetCastLevel(myHero,_R)*200)+(allDMG*2)
 					end
 				end
 			end
-			--if GetButtonValue("W") then
-			--local minion = ClosestMinion(myHeroPos,MINION_ALLY)
-				--if minion and GetOrigin(minion) then
-					--if GetDistance(minion, myHero) <= 700 and CanUseSpell(myHero,_W) == READY then                  
-						--CastTargetSpell(minion,_W)
-					--end	
-				--end
-			--end
+			if GetButtonValue("W") then
+			local minion = ClosestMinion(myHeroPos,MINION_ALLY)
+				if minion and GetOrigin(minion) then
+					if GetDistance(minion, myHero) <= 700 and CanUseSpell(myHero,_W) == READY then       
+						if GetDistance(GetOrigin(minion),GetOrigin(target)) < 450 then
+							CastTargetSpell(minion,_W)
+						end
+					end	
+				end
+			end				
 			if GetButtonValue("E") then
 				if ValidTarget(target,350) then
 					local FQpred = GetPredictionForPlayer(myHeroPos,target,GetMoveSpeed(target),2000,250,350,50,true,true)
@@ -94,8 +75,6 @@ local Rdmg = (GetCastLevel(myHero,_R)*200)+(allDMG*2)
 			end
 		end
 		else
-		DrawText(string.format("%s not suported", GetObjectName(myHero)),24,750,50,0xffffff00)
-		
+		DrawText(string.format("%s not suported", GetObjectName(myHero)),24,750,50,0xffffff00)	
 	end
-
 end)
