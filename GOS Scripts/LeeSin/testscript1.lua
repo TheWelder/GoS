@@ -1,5 +1,4 @@
 require('Inspired')
-require('twgank')
 
 wardTable = {}
 --ver 1.0.0.2, added GetCloserIsnecToMinion
@@ -30,7 +29,7 @@ local Qdmg = (GetCastLevel(myHero,_Q)*30)+50+perc90
 local Edmg =(GetCastLevel(myHero,_E)*35)+25+allDMG
 local Rdmg = (GetCastLevel(myHero,_R)*200)+(allDMG*2)
 
-local minion = ClosestMinion(myHeroPos,MINION_ALLY)
+local minion = XlosestMinion(myHeroPos,MINION_ALLY)
 local minionPos = GetOrigin(minion)
 local hero_origin = myHeroPos
 local targetPos = GetOrigin(target)
@@ -108,7 +107,7 @@ end)
 
 --Credits to Inspired
 
-function ClosestMinion(pos, team)
+function XlosestMinion(pos, team)
     local minion = nil
     for k,v in pairs(GetAllMinions()) do 
         local objTeam = GetTeam(v)
@@ -137,6 +136,7 @@ function ClosestAlly(pos, team)
         end
     end
     return minion
+end
 
 function GetWards(team)
   local result = {}
