@@ -8,12 +8,12 @@ minionTable = {}
 --ItemGhostWard aka sightstone 2049
 --sightward aka ward 2044
 
---[[Config = scriptConfig("leesin", "LeStar:")
+Config = scriptConfig("leesin", "LeStar:")
 Config.addParam("Q", "Use Q", SCRIPT_PARAM_ONOFF, true)
 Config.addParam("W", "Use W", SCRIPT_PARAM_ONOFF, true)
 Config.addParam("E", "Use E", SCRIPT_PARAM_ONOFF, true)
 Config.addParam("R", "Use R", SCRIPT_PARAM_ONOFF, true)
-Config.addParam("Combo", "Combo", SCRIPT_PARAM_KEYDOWN, string.byte(" "))]]
+Config.addParam("Combo", "Combo", SCRIPT_PARAM_KEYDOWN, string.byte(" "))
 
 OnLoop(function(myHero)
 
@@ -37,9 +37,9 @@ local targetPos = GetOrigin(target)
 
 	if champName == "LeeSin" then
 		DrawText(string.format("%s LeStar", GetObjectName(myHero)),24,750,50,0xff00ff00);
-		if KeyIsDown(0x20) and IsObjectAlive(target) then
-		--if Config.Combo then
-			--if Config.Q then
+		--if KeyIsDown(0x20) and IsObjectAlive(target) then
+		if Config.Combo and IsObjectAlive(target) then
+			if Config.Q then
 				if ValidTarget(target,1000) then
 					local FQpred = GetPredictionForPlayer(myHeroPos,target,GetMoveSpeed(target),2000,250,900,50,true,true)
 					if CanUseSpell(myHero,_Q) == READY and FQpred.HitChance == 1 then
@@ -48,8 +48,8 @@ local targetPos = GetOrigin(target)
 						CastTargetSpell(target,GetItemSlot(myHero,3144))
 					end
 				end
-			--end		
-			--if Config.E then
+			end		
+			if Config.E then
 				if ValidTarget(target,350) then
 					local FQpred = GetPredictionForPlayer(myHero,target,GetMoveSpeed(target),2000,250,350,50,true,true)
 					if CanUseSpell(myHero,_E) == READY then
@@ -59,18 +59,19 @@ local targetPos = GetOrigin(target)
 						CastTargetSpell(target,GetItemSlot(myHero,3143))
 
 					end
-				--end
+				end
 			end
-			--if Config.W then
+			if Config.W then
 				if IsInDistance(target,1300) and IsObjectAlive(target) then
 					--if GetDistance(minion,target) < GetDistance(myHero,target) and GetDistance(myHero,target) > 200 then 
 					local minion = XlosestMinion(myHeroPos,MINION_ALLY)
-						if minion and GetOrigin(minion) ~= nil then
+					if minion and GetOrigin(minion) ~= nil then
+						if GetDistance(minion,target) < GetDistance(myHero,target) and GetDistance(myHero,target) > 200 then 
 							if CanUseSpell(myHero,_W) == READY then
 								CastTargetSpell(minion,_W)	
 							end
 						end
-					--end
+					end
 					else
 					if GetDistance(myHero,target) < 200 then 
 						if CanUseSpell(myHero,_W) == READY then
@@ -78,8 +79,8 @@ local targetPos = GetOrigin(target)
 						end
 					end
 				end
-			--end
-			--if Config.R then
+			end
+			if Config.R then
 				if ValidTarget(target,375) then
 					if CalcDamage(myHero, target, Rdmg) > GetCurrentHP(target) + GetHPRegen(target) then
 						if CanUseSpell(myHero,_R) == READY then
@@ -87,7 +88,7 @@ local targetPos = GetOrigin(target)
 						end
 					end
 				end
-			--end
+			end
 		end
 	else
 	DrawText(string.format("%s not suported", GetObjectName(myHero)),24,750,50,0xffffff00)
