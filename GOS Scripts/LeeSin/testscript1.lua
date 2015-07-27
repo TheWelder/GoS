@@ -1,5 +1,4 @@
 require('Inspired')
-require('twgank')
 
 --ver 1.0.0.2, added GetCloserIsnecToMinion
 --api 0.0.4
