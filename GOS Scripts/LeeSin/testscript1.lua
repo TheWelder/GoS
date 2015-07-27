@@ -8,9 +8,6 @@ require('twgank')
 --ItemGhostWard aka sightstone 2049
 --sightward aka ward 2044
 
-
-items = {}
-
 local myHero = nil
 local champName = nil
 local target = nil
@@ -35,8 +32,6 @@ local Rdmg = (GetCastLevel(myHero,_R)*200)+(allDMG*2)
 
 local minion = ClosestMinion(myHeroPos,MINION_ALLY)
 local minionPos = GetOrigin(minion)
-local warden = GetWards(myTeam)
-local wardenPos = GetOrigin(warden)
 local hero_origin = myHeroPos
 local targetPos = GetOrigin(target)
 local myscreenpos = WorldToScreen(1,hero_origin.x,hero_origin.y,hero_origin.z)
