@@ -6,21 +6,21 @@ require('Inspired')
 --Made By TheWelder
 
 Config = scriptConfig("twgank", "TWGank")
-Config.addParam("Gank", "GankAlert", SCRIPT_PARAM_ONOFF, true)
+Config.addParam("G", "GankAlert", SCRIPT_PARAM_ONOFF, true)
 
 OnLoop(function(myHero)
 local myHero = GetMyHero()
 local myHeroPos = GetOrigin(myHero)
-		if EnemiesAround(myHeroPos, 2000) > 0 then
-			if Config.Gank then	
+		if EnemiesAround(myHeroPos, 4000) > 0 then
+			--if Config.G then	
 				local hero_origin = myHeroPos
 				local myscreenpos = WorldToScreen(1,hero_origin.x,hero_origin.y,hero_origin.z)
 				if myscreenpos.flag then
-					if EnemiesAround(myHeroPos, 2000) > AlliesAround(myHeroPos,2000)+1 then
+					if EnemiesAround(myHeroPos, 4000) > AlliesAround(myHeroPos,2000)+1 then
 						DrawText(string.format("GANKED"),24,myscreenpos.x,myscreenpos.y,0xffff0000)
 					end
 				end
-			end
+			--end
 		end
 end)
 
