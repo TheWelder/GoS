@@ -1,5 +1,5 @@
 require('Inspired')
-
+wardTable = {}
 --ver 1.0.0.2, added GetCloserIsnecToMinion
 --api 0.0.4
 --Made by TheWelder
@@ -11,11 +11,22 @@ local myHero = nil
 local champName = nil
 local target = nil
 
-AddInfo("leesin", "LeStar:")
-AddButton("Q", "Use Q", true)
-AddButton("W", "Use W", true)
-AddButton("E", "Use E", true)
-AddButton("R", "Use R", true)
+Config = scriptConfig("leesin", "LeStar:")
+Config.addParam("Q", "Use Q", SCRIPT_PARAM_ONOFF, true)
+Config.addParam("W", "Use W", SCRIPT_PARAM_ONOFF, true)
+Config.addParam("E", "Use E", SCRIPT_PARAM_ONOFF, true)
+Config.addParam("R", "Use R", SCRIPT_PARAM_ONOFF, true)
+Config.addParam("Combo", "Combo", SCRIPT_PARAM_KEYDOWN, string.byte(" "))
+
+OnObjectLoop(function(object, myHero)
+  local objType = GetObjectType(object)
+  local objTeam = GetTeam(object)
+  local objNID  = GetNetworkID(object)
+  local objName = GetObjectName(object)
+	if objName:lower():find("ward") or objName:lower():find("totem") then
+		wardTable[objNID] = object
+	end
+end)
 
 OnLoop(function(myHero)
 myHero = GetMyHero()
@@ -103,3 +114,18 @@ OnProcessSpell(function(target,spell)
 	end
 
 end)
+
+function GetWards(team)
+  local result = {}
+  for _,k in pairs(wardTable) do
+    if k then
+      if not team or GetTeam(k) == team then
+        result[_] = k
+      end
+    else
+      wardTable[_] = nil
+    end
+  end
+  return result
+end
+
