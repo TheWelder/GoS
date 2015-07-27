@@ -1,8 +1,5 @@
 require('Inspired')
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/master
 wardTable = {}
 --ver 1.0.0.2, added GetCloserIsnecToMinion
 --api 0.0.4
@@ -11,7 +8,6 @@ wardTable = {}
 --ItemGhostWard aka sightstone 2049
 --sightward aka ward 2044
 
-<<<<<<< HEAD
 Config = scriptConfig("leesin", "LeStar:")
 Config.addParam("Q", "Use Q", SCRIPT_PARAM_ONOFF, true)
 Config.addParam("W", "Use W", SCRIPT_PARAM_ONOFF, true)
@@ -26,7 +22,7 @@ local myHeroPos = GetOrigin(myHero)
 local champName = GetObjectName(myHero)
 local target = GetCurrentTarget()
 local targetPos = GetOrigin(target)
-=======
+
 local myHero = nil
 local champName = nil
 local target = nil
@@ -47,7 +43,6 @@ OnObjectLoop(function(object, myHero)
 		wardTable[objNID] = object
 	end
 end)
->>>>>>> origin/master
 
 local minion = ClosestMinion(myHeroPos,MINION_ALLY)
 local minionPos = GetOrigin(minion)
@@ -60,15 +55,11 @@ local Qdmg = (GetCastLevel(myHero,_Q)*30)+50+perc90
 local Edmg =(GetCastLevel(myHero,_E)*35)+25+allDMG
 local Rdmg = (GetCastLevel(myHero,_R)*200)+(allDMG*2)
 
-<<<<<<< HEAD
-=======
 local minion = ClosestMinion(myHeroPos,MINION_ALLY)
 local minionPos = GetOrigin(minion)
 local hero_origin = myHeroPos
 local targetPos = GetOrigin(target)
 local myscreenpos = WorldToScreen(1,hero_origin.x,hero_origin.y,hero_origin.z)
->>>>>>> origin/master
-
 
 --local ward1 = GetItemSlot(myHero,2045),GetItemSlot(myHero,2044),GetItemSlot(myHero,2049),GetItemSlot(myHero,2043)
 
@@ -140,7 +131,6 @@ OnProcessSpell(function(target,spell)
 
 end)
 
-<<<<<<< HEAD
 --Credits to Inspired
 
 function ClosestMinion(pos, team)
@@ -172,7 +162,7 @@ function ClosestAlly(pos, team)
         end
     end
     return minion
-=======
+
 function GetWards(team)
   local result = {}
   for _,k in pairs(wardTable) do
@@ -185,6 +175,5 @@ function GetWards(team)
     end
   end
   return result
->>>>>>> origin/master
 end
 
