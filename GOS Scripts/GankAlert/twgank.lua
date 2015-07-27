@@ -1,15 +1,18 @@
 require('Inspired')
 
---ver 1.0.0.1
+--27/07/2015
+--ver 1.0.0.2
 --API 0.0.4
 --Made By TheWelder
-AddInfo("util", "Utilities:")
-AddButton("Gank","GankAlert",true)
+
+Config = scriptConfig("twgank", "TWGank")
+Config.addParam("Gank", "GankAlert", SCRIPT_PARAM_ONOFF, true)
+
 OnLoop(function(myHero)
 local myHero = GetMyHero()
 local myHeroPos = GetOrigin(myHero)
 		if EnemiesAround(myHeroPos, 2000) > 0 then
-			if GetButtonValue("Gank") then	
+			if Config.Gank then	
 				local hero_origin = myHeroPos
 				local myscreenpos = WorldToScreen(1,hero_origin.x,hero_origin.y,hero_origin.z)
 				if myscreenpos.flag then

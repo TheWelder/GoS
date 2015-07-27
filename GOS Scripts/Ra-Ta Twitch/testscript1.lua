@@ -14,12 +14,13 @@ local Graves = nil
 local myHeroR = nil
 local TargetPos = nil
 
-AddInfo("twitch", "Ra-Ta-Twitch:")
-AddButton("Q", "Use Q", true)
-AddButton("W", "Use W", true)
-AddButton("E", "Smart E", true)
-AddButton("sE", "Spam E", false)
-AddButton("R", "Use R", true)
+Config = scriptConfig("twitch", "Ra-Ta-Twitch")
+Config.addParam("Q", "Use Q", SCRIPT_PARAM_ONOFF, true)
+Config.addParam("W", "Use W", SCRIPT_PARAM_ONOFF, true)
+Config.addParam("E", "Smart E", SCRIPT_PARAM_ONOFF, true)
+Config.addParam("sE", "Spam E", SCRIPT_PARAM_ONOFF, true)
+Config.addParam("R", "Use R", SCRIPT_PARAM_ONOFF, true)
+Config.addParam("Combo", "Combo", SCRIPT_PARAM_KEYDOWN, string.byte(" "))
 
 OnLoop(function(myHero)
 		myHero = GetMyHero()
@@ -28,7 +29,7 @@ OnLoop(function(myHero)
 			if "Twitch" == GetObjectName(myHero) then
 				DrawText(string.format("LeStronk %s ", GetObjectName(myHero)),24,750,50,0xff00ff00);
 				DrawDmgOverHpBar(target,GetCurrentHP(target),120,60,0xffffffff);
-					if KeyIsDown(0x20) and IsObjectAlive(target) then
+					if Config.Combo and IsObjectAlive(target) then
 						if ValidTarget(target, 3000) then
 							if GetButtonValue("Q") then
 								if CanUseSpell(myHero, _Q) == READY then
@@ -38,14 +39,14 @@ OnLoop(function(myHero)
 						end
 						if ValidTarget(target, 950) then
 							local WPred = GetPredictionForPlayer(myHeroPos, target,GetMoveSpeed(target),1400,250,950,55,true,true)
-							if GetButtonValue("W") then
+							if Config.W then
 								if CanUseSpell(myHero,_W) == READY and WPred.HitChance == 1 then
 									CastSkillShot(_W,WPred.PredPos.x,WPred.PredPos.y,WPred.PredPos.z)
 								end
 							end
 						end
 						if ValidTarget(target,1200) then
-							if GetButtonValue("E") then
+							if Config.E then
 								local allDMG = GetBonusDmg(myHero)
 								local allDMGperc = allDMG/100
 								local EdmgCalc = 100+allDMGperc/6
@@ -57,7 +58,7 @@ OnLoop(function(myHero)
 								end
 							end
 
-						if GetButtonValue("sE") then
+						if Config.sE then
 							if GotBuff(GetCurrentTarget(),"twitchdeadlyvenom") == 6 then
 								if CanUseSpell(myHero,_E) == READY then
 									CastTargetSpell(myHero,_E)
@@ -67,7 +68,7 @@ OnLoop(function(myHero)
 						end	
 						if ValidTarget(target,850) then
 							if CanUseSpell(myHero,_R) == READY then
-								if GetButtonValue("R") then
+								if Config.R then
 									CastTargetSpell(myHero,_R)
 								end
 							end
