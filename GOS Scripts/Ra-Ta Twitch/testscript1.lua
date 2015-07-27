@@ -31,7 +31,7 @@ OnLoop(function(myHero)
 				DrawDmgOverHpBar(target,GetCurrentHP(target),120,60,0xffffffff);
 					if Config.Combo and IsObjectAlive(target) then
 						if ValidTarget(target, 3000) then
-							if GetButtonValue("Q") then
+							if Config.Q then
 								if CanUseSpell(myHero, _Q) == READY then
 									CastTargetSpell(myHero,_Q)
 								end
