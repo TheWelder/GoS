@@ -27,7 +27,7 @@ OnLoop(function(myHero)
 		target = GetCurrentTarget()
 		myHeroPos = GetOrigin(myHero)
 			if "Twitch" == GetObjectName(myHero) then
-				DrawText(string.format("LeStronk %s ", GetObjectName(myHero)),24,750,50,0xff00ff00);
+				DrawText(string.format("RA-TA %s ", GetObjectName(myHero)),24,750,50,0xff00ff00);
 				DrawDmgOverHpBar(target,GetCurrentHP(target),120,60,0xffffffff);
 					if Config.Combo and IsObjectAlive(target) then
 						if ValidTarget(target, 3000) then
