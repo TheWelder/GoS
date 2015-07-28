@@ -1,4 +1,5 @@
 require('Inspired')
+require('twgank')
 minionTable = {}
 --wardTable = {}
 --ver 1.0.0.2, added GetCloserIsnecToMinion
