@@ -2,9 +2,15 @@ require('Inspired')
 require('twgank')
 minionTable = {}
 --wardTable = {}
---ver 1.0.0.2, added GetCloserIsnecToMinion
---api 0.0.4
---Made by TheWelder
+local info = "LeStar LeeSin"
+local upv = "If you like UpVote!"
+local sig = "Made by TheWelder"
+local ver = "1.0.0.9"
+textTable = {info,upv,sig,ver} 
+PrintChat(textTable[1])
+PrintChat(textTable[2])
+PrintChat(textTable[3])
+PrintChat(textTable[4])heWelder
 
 --ItemGhostWard aka sightstone 2049
 --sightward aka ward 2044

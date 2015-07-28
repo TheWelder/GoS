@@ -1,9 +1,19 @@
 require('Inspired')
 require('twgank')
 
---ver 1.0.0.3
---api 0.0.4
---Made by TheWelder
+local info = "StronkGraves Loaded"
+local upv = "If you like UpVote!"
+local sig = "Made by TheWelder"
+local ver = "1.0.0.4"
+textTable = {info,upv,sig,ver} 
+PrintChat(textTable[1])
+PrintChat(textTable[2])
+PrintChat(textTable[3])
+PrintChat(textTable[4])
+
+textTable = {"Ra-Ta Twich by TheWelder Loaded, please feel free to UpVote","ver 1.0.0.1"} 
+PrintChat(textTable[1])
+PrintChat(textTable[2])
 
 Config = scriptConfig("graves", "StronkGraves")
 Config.addParam("Q", "Use Q", SCRIPT_PARAM_ONOFF, true)

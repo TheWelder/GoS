@@ -1,16 +1,19 @@
 require('Inspired')
 require('twgank')
 
---ver 1.0.0.1
---api 0.0.4
---Made by TheWelder
-
-
+local info = "Ra-Ta Twich Loaded"
+local upv = "If you like UpVote!"
+local sig = "Made by TheWelder"
+local ver = "1.0.0.1"
+textTable = {info,upv,sig,ver} 
+PrintChat(textTable[1])
+PrintChat(textTable[2])
+PrintChat(textTable[3])
+PrintChat(textTable[4])
 
 local myHero = nil
 local myHeroPos = nil
 local target = nil
-local Graves = nil
 local myHeroR = nil
 local TargetPos = nil
 

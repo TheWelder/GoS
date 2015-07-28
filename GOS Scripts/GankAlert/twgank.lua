@@ -1,9 +1,14 @@
 require('Inspired')
 
---27/07/2015
---ver 1.0.0.2
---API 0.0.4
---Made By TheWelder
+local info = "TWGank Loaded"
+local upv = "If you like UpVote!"
+local sig = "Made by TheWelder"
+local ver = "1.0.0.1"
+textTable = {info,upv,sig,ver} 
+PrintChat(textTable[1])
+PrintChat(textTable[2])
+PrintChat(textTable[3])
+PrintChat(textTable[4])
 
 Config = scriptConfig("twgank", "TWGank")
 Config.addParam("G", "GankAlert", SCRIPT_PARAM_ONOFF, true)
