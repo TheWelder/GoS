@@ -24,6 +24,8 @@ Config.addParam("E", "Smart E", SCRIPT_PARAM_ONOFF, true)
 Config.addParam("sE", "Spam E", SCRIPT_PARAM_ONOFF, true)
 Config.addParam("R", "Use R", SCRIPT_PARAM_ONOFF, true)
 Config.addParam("Combo", "Combo", SCRIPT_PARAM_KEYDOWN, string.byte(" "))
+	
+local Rdmg = GetAttackSpeed(myHero)*(GetBaseDamage(myHero)+(GetCastLevel(myHero,_R)*8)+12)
 
 OnLoop(function(myHero)
 		myHero = GetMyHero()
@@ -68,11 +70,18 @@ OnLoop(function(myHero)
 						end
 						end	
 						if ValidTarget(target,850) then
+<<<<<<< HEAD
 							if CalcDamage(myHero, target, Rdmg) > GetCurrentHP(target) + GetHPRegen(target) then
 								if CanUseSpell(myHero,_R) == READY then
 									if Config.R then
 										CastTargetSpell(myHero,_R)
 									end
+=======
+							if CanUseSpell(myHero,_R) == READY then
+								if Config.R then
+									if CalcDamage(myHero, target, Rdmg) > GetCurrentHP(target) + GetHPRegen(target) then
+									CastTargetSpell(myHero,_R)
+>>>>>>> origin/master
 								end
 							end
 						end
