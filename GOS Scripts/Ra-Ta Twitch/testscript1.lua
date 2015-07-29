@@ -4,7 +4,7 @@ require('twgank')
 local info = "Ra-Ta Twich Loaded"
 local upv = "If you like UpVote!"
 local sig = "Made by TheWelder"
-local ver = "1.0.0.1"
+local ver = "1.0.0.2 29/07/2015 6:22PM"
 textTable = {info,upv,sig,ver} 
 PrintChat(textTable[1])
 PrintChat(textTable[2])
@@ -29,6 +29,8 @@ OnLoop(function(myHero)
 		myHero = GetMyHero()
 		target = GetCurrentTarget()
 		myHeroPos = GetOrigin(myHero)
+		local Rdmg = ((GetBaseDamage(myHero)+(GetCastLevel(myHero,_R)*8)+12)/GetAttackSpeed(myHero))*7
+		local Edmg = (GetCastLevel(myHero,_E)*15)+5+(GotBuff(GetCurrentTarget(),"twitchdeadlyvenom")*(5+(GetBaseDamage(myHero)/1.25)))
 			if "Twitch" == GetObjectName(myHero) then
 				DrawText(string.format("RA-TA %s ", GetObjectName(myHero)),24,750,50,0xff00ff00);
 				DrawDmgOverHpBar(target,GetCurrentHP(target),120,60,0xffffffff);
@@ -50,10 +52,6 @@ OnLoop(function(myHero)
 						end
 						if ValidTarget(target,1200) then
 							if Config.E then
-								local allDMG = GetBonusDmg(myHero)
-								local allDMGperc = allDMG/100
-								local EdmgCalc = 100+allDMGperc/6
-								local Edmg = GotBuff(GetCurrentTarget(),"twitchdeadlyvenom")*EdmgCalc
 								if CalcDamage(myHero, target, Edmg) > GetCurrentHP(target) + GetHPRegen(target) then
 									if CanUseSpell(myHero,_E) == READY then
 										CastTargetSpell(myHero,_E)
@@ -70,9 +68,11 @@ OnLoop(function(myHero)
 						end
 						end	
 						if ValidTarget(target,850) then
-							if CanUseSpell(myHero,_R) == READY then
-								if Config.R then
-									CastTargetSpell(myHero,_R)
+							if CalcDamage(myHero, target, Rdmg) > GetCurrentHP(target) + GetHPRegen(target) then
+								if CanUseSpell(myHero,_R) == READY then
+									if Config.R then
+										CastTargetSpell(myHero,_R)
+									end
 								end
 							end
 						end

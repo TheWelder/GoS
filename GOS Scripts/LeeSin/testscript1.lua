@@ -10,7 +10,7 @@ textTable = {info,upv,sig,ver}
 PrintChat(textTable[1])
 PrintChat(textTable[2])
 PrintChat(textTable[3])
-PrintChat(textTable[4])heWelder
+PrintChat(textTable[4])
 
 --ItemGhostWard aka sightstone 2049
 --sightward aka ward 2044
