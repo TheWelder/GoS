@@ -1,10 +1,10 @@
 require('Inspired')
 require('twgank')
 
-local info = "StronkGraves Loaded"
+local info = "KogFkingMaw Loaded"
 local upv = "If you like UpVote!"
 local sig = "Made by TheWelder"
-local ver = "1.0.0.4"
+local ver = "1.0.0.1 30/07/2015 12:22AM"
 textTable = {info,upv,sig,ver} 
 PrintChat(textTable[1])
 PrintChat(textTable[2])
@@ -36,24 +36,25 @@ local WRange = (GetCastLevel(myHero,_W)*20)+610
 							end
 						end
 						if ValidTarget(target, WRange) then
-							local QPred = GetPredictionForPlayer(myHeroPos,target,GetMoveSpeed(target),1875,250,WRange,55,true,true)
+							local WPred = GetPredictionForPlayer(myHeroPos,target,GetMoveSpeed(target),1875,250,WRange,55,true,true)
 							if Config.W then
-								if CanUseSpell(myHero, _W) == READY and QPred.HitChance == 1 then
-									CastSkillShot(_W,QPred.PredPos.x,QPred.PredPos.y,QPred.PredPos.z)
+								if CanUseSpell(myHero, _W) == READY and WPred.HitChance == 1 then
+									CastSkillShot(_W,WPred.PredPos.x,WPred.PredPos.y,WPred.PredPos.z)
 								end
 							end
 						end
 						if ValidTarget(target, 1280) then
-							local QPred = GetPredictionForPlayer(myHeroPos,target,GetMoveSpeed(target),1875,250,1280,55,true,true)
+							local EPred = GetPredictionForPlayer(myHeroPos,target,GetMoveSpeed(target),1875,250,1280,55,true,true)
 							if Config.E then
-								if CanUseSpell(myHero, _E) == READY and QPred.HitChance == 1 then
-									CastSkillShot(_E,QPred.PredPos.x,QPred.PredPos.y,QPred.PredPos.z)
+								if CanUseSpell(myHero, _E) == READY and EPred.HitChance == 1 then
+									CastSkillShot(_E,EPred.PredPos.x,EPred.PredPos.y,EPred.PredPos.z)
 								end
 							end
 						end	
 						if ValidTarget(target,700) then
 							if Config.R then
 								local RPred = GetPredictionForPlayer(myHeroPos, target,GetMoveSpeed(target),1875,250,700,55,true,true)
+								if CanUseSpell(myHero, _R) == READY and RPred.HitChance == 1 then
 									CastSkillShot(_R,RPred.PredPos.x,RPred.PredPos.y,RPred.PredPos.z)
 								end
 							end
