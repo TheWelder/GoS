@@ -24,15 +24,12 @@ Config.addParam("E", "Smart E", SCRIPT_PARAM_ONOFF, true)
 Config.addParam("sE", "Spam E", SCRIPT_PARAM_ONOFF, true)
 Config.addParam("R", "Use R", SCRIPT_PARAM_ONOFF, true)
 Config.addParam("Combo", "Combo", SCRIPT_PARAM_KEYDOWN, string.byte(" "))
-	
-local Rdmg = GetAttackSpeed(myHero)*(GetBaseDamage(myHero)+(GetCastLevel(myHero,_R)*8)+12)
 
 OnLoop(function(myHero)
 		myHero = GetMyHero()
 		target = GetCurrentTarget()
 		myHeroPos = GetOrigin(myHero)
 		local Rdmg = ((GetBaseDamage(myHero)+(GetCastLevel(myHero,_R)*8)+12)/GetAttackSpeed(myHero))*7
-		local Edmg = (GetCastLevel(myHero,_E)*15)+5+(GotBuff(GetCurrentTarget(),"twitchdeadlyvenom")*(5+(GetBaseDamage(myHero)/1.25)))
 			if "Twitch" == GetObjectName(myHero) then
 				DrawText(string.format("RA-TA %s ", GetObjectName(myHero)),24,750,50,0xff00ff00);
 				DrawDmgOverHpBar(target,GetCurrentHP(target),120,60,0xffffffff);
@@ -54,6 +51,11 @@ OnLoop(function(myHero)
 						end
 						if ValidTarget(target,1200) then
 							if Config.E then
+								local allDMG = GetBonusDmg(myHero)
+								local allDMGperc = allDMG/100
+								local Edmg = (GetCastLevel(myHero,_E)*15)+5+(GotBuff(GetCurrentTarget(),"twitchdeadlyvenom")*(5+(GetBaseDamage(myHero)/1.25)))
+								
+								--local Edmg = GotBuff(GetCurrentTarget(),"twitchdeadlyvenom")*EdmgCalc
 								if CalcDamage(myHero, target, Edmg) > GetCurrentHP(target) + GetHPRegen(target) then
 									if CanUseSpell(myHero,_E) == READY then
 										CastTargetSpell(myHero,_E)
@@ -70,18 +72,11 @@ OnLoop(function(myHero)
 						end
 						end	
 						if ValidTarget(target,850) then
-<<<<<<< HEAD
 							if CalcDamage(myHero, target, Rdmg) > GetCurrentHP(target) + GetHPRegen(target) then
 								if CanUseSpell(myHero,_R) == READY then
 									if Config.R then
 										CastTargetSpell(myHero,_R)
 									end
-=======
-							if CanUseSpell(myHero,_R) == READY then
-								if Config.R then
-									if CalcDamage(myHero, target, Rdmg) > GetCurrentHP(target) + GetHPRegen(target) then
-									CastTargetSpell(myHero,_R)
->>>>>>> origin/master
 								end
 							end
 						end
