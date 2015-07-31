@@ -4,7 +4,7 @@ require('twgank')
 local info = "VladiFukFest Loaded"
 local upv = "If you like UpVote!"
 local sig = "Made by TheWelder"
-local ver = "1.0.0.1 31/07/2015 12:22AM"
+local ver = "1.0.0.2 01/08/2015 12:44AM"
 textTable = {info,upv,sig,ver} 
 PrintChat(textTable[1])
 PrintChat(textTable[2])
@@ -49,7 +49,7 @@ OnLoop(function(myHero)
 						end	
 						if ValidTarget(target,700) then
 							if Config.R then
-								local Rdmg = (CastLevel(myHero,_R)*112+56)+(GetBonusAP(myHero)*0.78)
+								local Rdmg = (GetCastLevel(myHero,_R)*112+56)+(GetBonusAP(myHero)*0.78)
 								local RPred = GetPredictionForPlayer(myHeroPos, target,GetMoveSpeed(target),1875,250,700,55,true,true)
 								if CanUseSpell(myHero, _R) == READY and RPred.HitChance == 1 then
 									if CalcDamage(myHero, target, Rdmg) > GetCurrentHP(target) + GetHPRegen(target)*5 then
