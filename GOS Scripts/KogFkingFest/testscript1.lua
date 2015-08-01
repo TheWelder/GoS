@@ -28,19 +28,19 @@ local WRange = GetCastRange(myHero,_W)
 				DrawText(string.format("KogFkingMaw %s ", GetObjectName(myHero)),24,750,50,0xff00ff00);
 				DrawDmgOverHpBar(target,GetCurrentHP(target),120,60,0xffffffff);
 					if Config.Combo and IsObjectAlive(target) then
+						if ValidTarget(target, WRange) then
+							local WPred = GetPredictionForPlayer(myHeroPos,target,GetMoveSpeed(target),2000,0,WRange,55,true,true)
+							if Config.W then
+								if CanUseSpell(myHero, _W) == READY and WPred.HitChance == 1 then
+									CastSkillShot(_W,WPred.PredPos.x,WPred.PredPos.y,WPred.PredPos.z)
+								end
+							end
+						end
 						if ValidTarget(target, 1000) then
 							local QPred = GetPredictionForPlayer(myHeroPos,target,GetMoveSpeed(target),1875,250,1000,55,true,true)
 							if Config.Q then
 								if CanUseSpell(myHero, _Q) == READY and QPred.HitChance == 1 then
 									CastSkillShot(_Q,QPred.PredPos.x,QPred.PredPos.y,QPred.PredPos.z)
-								end
-							end
-						end
-						if ValidTarget(target, WRange) then
-							local WPred = GetPredictionForPlayer(myHeroPos,target,GetMoveSpeed(target),1875,250,WRange,55,true,true)
-							if Config.W then
-								if CanUseSpell(myHero, _W) == READY and WPred.HitChance == 1 then
-									CastSkillShot(_W,WPred.PredPos.x,WPred.PredPos.y,WPred.PredPos.z)
 								end
 							end
 						end
@@ -52,9 +52,9 @@ local WRange = GetCastRange(myHero,_W)
 								end
 							end
 						end	
-						if ValidTarget(target,Rrange) then
+						if ValidTarget(target, Rrange) then
 							if Config.R then
-								local RPred = GetPredictionForPlayer(myHeroPos, target,GetMoveSpeed(target),1875,250,Rrange,55,true,true)
+								local RPred = GetPredictionForPlayer(myHeroPos, target,GetMoveSpeed(target),1875,600,Rrange,55,true,true)
 								if CanUseSpell(myHero, _R) == READY and RPred.HitChance == 1 then
 									CastSkillShot(_R,RPred.PredPos.x,RPred.PredPos.y,RPred.PredPos.z)
 								end
