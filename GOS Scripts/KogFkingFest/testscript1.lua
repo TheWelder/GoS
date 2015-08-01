@@ -19,7 +19,8 @@ Config.addParam("R", "Use R", SCRIPT_PARAM_ONOFF, true)
 Config.addParam("Combo", "Combo", SCRIPT_PARAM_KEYDOWN, string.byte(" "))
 
 OnLoop(function(myHero)
-local WRange = (GetCastLevel(myHero,_W)*20)+610
+local Rrange = GetCastRange(myHero,_R)
+local WRange = GetCastRange(myHero,_W)
 		local myHero = GetMyHero()
 		local target = GetCurrentTarget()
 		local myHeroPos = GetOrigin(myHero)
@@ -51,9 +52,9 @@ local WRange = (GetCastLevel(myHero,_W)*20)+610
 								end
 							end
 						end	
-						if ValidTarget(target,700) then
+						if ValidTarget(target,Rrange) then
 							if Config.R then
-								local RPred = GetPredictionForPlayer(myHeroPos, target,GetMoveSpeed(target),1875,250,700,55,true,true)
+								local RPred = GetPredictionForPlayer(myHeroPos, target,GetMoveSpeed(target),1875,250,Rrange,55,true,true)
 								if CanUseSpell(myHero, _R) == READY and RPred.HitChance == 1 then
 									CastSkillShot(_R,RPred.PredPos.x,RPred.PredPos.y,RPred.PredPos.z)
 								end
