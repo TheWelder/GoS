@@ -29,7 +29,7 @@ OnLoop(function(myHero)
 						if ValidTarget(target, 600) then
 							if Config.Q then
 								if CanUseSpell(myHero, _Q) == READY then
-									CastTargetSpell(myHero,_Q)
+									CastTargetSpell(target,_Q)
 								end
 							end
 						end
