@@ -1,10 +1,12 @@
 require('Inspired')
 require('twgank')
-
-local info = "VladiFukFest Loaded"
+require('IAC')
+myIAC = IAC()
 local upv = "If you like UpVote!"
 local sig = "Made by TheWelder"
-local ver = "1.0.0.2 01/08/2015 12:44AM"
+local ver = "1.0.0.5 12:23AM 3/08/2015"
+local info = "VladiFukFest Loaded"
+
 textTable = {info,upv,sig,ver} 
 PrintChat(textTable[1])
 PrintChat(textTable[2])
