@@ -1,5 +1,6 @@
 require('Inspired')
 require('AFKarma')
+require('AFTwitch')
 
 local upv = "If you like UpVote!"
 local sig = "Made by TheWelder"
@@ -16,13 +17,14 @@ local champName = GetObjectName(Object)
 local Obj_Type = GetObjectType(Object)
 local target = GetCurrentTarget()
 local myRange = GetRange(myHero)
-if IsObjectAlive(Object) then --and IsInDistance(myHero,3000) then
 	if Obj_Type == Obj_AI_Hero then
 		if GetTeam(Object) == GetTeam(myHero) then
-				--if GetRange(Object) > 450 then
+			if IsObjectAlive(Object) then
+				if GetRange(Object) > 450 and IsInDistance(Object,5000) then
 						local hero_origin = GetOrigin(Object)
-						MoveToXYZ(hero_origin.x-200,hero_origin.y-100,hero_origin.z-100)
-				--end
+						MoveToXYZ(hero_origin.x-170,hero_origin.y,hero_origin.z+100)
+				end
+			end
 		end
 	end
 end)	
