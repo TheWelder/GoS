@@ -8,11 +8,11 @@ local ver = "1.0.0.5 12:23AM 3/08/2015"
 minionTable = {}
 --wardTable = {}
 local info = "LeStar LeeSin"
-textTable = {info,upv,sig,ver} 
-PrintChat(textTable[1])
-PrintChat(textTable[2])
-PrintChat(textTable[3])
-PrintChat(textTable[4])
+--textTable = {info,upv,sig,ver} 
+--PrintChat(textTable[1])
+--PrintChat(textTable[2])
+--PrintChat(textTable[3])
+--PrintChat(textTable[4])
 
 --ItemGhostWard aka sightstone 2049
 --sightward aka ward 2044
@@ -45,7 +45,7 @@ local targetPos = GetOrigin(target)
 --local ward1 = GetItemSlot(myHero,2045),GetItemSlot(myHero,2044),GetItemSlot(myHero,2049),GetItemSlot(myHero,2043)
 
 	if champName == "LeeSin" then
-		DrawText(string.format("%s LeStar", GetObjectName(myHero)),24,750,50,0xff00ff00);
+		--DrawText(string.format("%s LeStar", GetObjectName(myHero)),24,750,50,0xff00ff00);
 		--if KeyIsDown(0x20) and IsObjectAlive(target) then
 		if Config.Combo and IsObjectAlive(target) then
 			if Config.Q then
@@ -99,7 +99,7 @@ local targetPos = GetOrigin(target)
 			end
 		end
 	else
-	DrawText(string.format("%s not suported", GetObjectName(myHero)),24,750,50,0xffffff00)
+	--DrawText(string.format("%s not suported", GetObjectName(myHero)),24,750,50,0xffffff00)
 	end
 end)
 

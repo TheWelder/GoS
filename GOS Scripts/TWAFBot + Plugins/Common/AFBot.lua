@@ -6,10 +6,10 @@ local sig = "Made by TheWelder"
 local ver = "1.0.0.5 3:23AM 5/08/2015"
 local info = "AFBot Loaded"
 textTable = {info,upv,sig,ver} 
-PrintChat(textTable[1])
-PrintChat(textTable[2])
-PrintChat(textTable[3])
-PrintChat(textTable[4])
+--PrintChat(textTable[1])
+--PrintChat(textTable[2])
+--PrintChat(textTable[3])
+--PrintChat(textTable[4])
 
 OnObjectLoop(function(Object,myHero)
 local champName = GetObjectName(Object)

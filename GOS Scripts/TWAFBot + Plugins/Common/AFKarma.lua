@@ -4,11 +4,11 @@ local upv = "If you like UpVote!"
 local sig = "Made by TheWelder"
 local ver = "1.0.0.5 12:23AM 3/08/2015"
 local info = "KarmaPlugin Loaded"
-textTable = {info,upv,sig,ver} 
-PrintChat(textTable[1])
-PrintChat(textTable[2])
-PrintChat(textTable[3])
-PrintChat(textTable[4])
+--textTable = {info,upv,sig,ver} 
+--PrintChat(textTable[1])
+--PrintChat(textTable[2])
+--PrintChat(textTable[3])
+--PrintChat(textTable[4])
 
 OnLoop(function(myHero)
 local myHero = GetMyHero()

@@ -8,10 +8,10 @@ local ver = "1.0.0.5 12:23AM 3/08/2015"
 local info = "Ra-Ta Twich Loaded"
 
 textTable = {info,upv,sig,ver} 
-PrintChat(textTable[1])
-PrintChat(textTable[2])
-PrintChat(textTable[3])
-PrintChat(textTable[4])
+--PrintChat(textTable[1])
+--PrintChat(textTable[2])
+--PrintChat(textTable[3])
+--PrintChat(textTable[4])
 
 local myHero = nil
 local myHeroPos = nil
@@ -35,7 +35,7 @@ OnLoop(function(myHero)
 		local Rspeed = 7*GetAttackSpeed(myHero)
 		local Rdmg = ((GetBaseDamage(myHero)+(GetCastLevel(myHero,_R)*8)+12))*Rspeed
 			if "Twitch" == GetObjectName(myHero) then
-				DrawText(string.format("RA-TA %s ", GetObjectName(myHero)),24,750,50,0xff00ff00);
+				--DrawText(string.format("RA-TA %s ", GetObjectName(myHero)),24,750,50,0xff00ff00);
 				DrawDmgOverHpBar(target,GetCurrentHP(target),120,60,0xffffffff);
 					if Config.Combo and IsObjectAlive(target) then
 						if ValidTarget(target, 3000) then
@@ -82,7 +82,7 @@ OnLoop(function(myHero)
 						end
 					end
 			else
-				DrawText(string.format("%s not suported", GetObjectName(myHero)),24,750,50,0xffffff00)
+				--DrawText(string.format("%s not suported", GetObjectName(myHero)),24,750,50,0xffffff00)
 			end
 end)
 

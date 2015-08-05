@@ -8,10 +8,10 @@ local ver = "1.0.0.5 12:23AM 3/08/2015"
 local info = "VladiFukFest Loaded"
 
 textTable = {info,upv,sig,ver} 
-PrintChat(textTable[1])
-PrintChat(textTable[2])
-PrintChat(textTable[3])
-PrintChat(textTable[4]) 
+--PrintChat(textTable[1])
+--PrintChat(textTable[2])
+--PrintChat(textTable[3])
+--PrintChat(textTable[4]) 
 
 Config = scriptConfig("vladimir", "VladiFukFest")
 Config.addParam("Q", "Use Q", SCRIPT_PARAM_ONOFF, true)
@@ -25,7 +25,7 @@ OnLoop(function(myHero)
 		local target = GetCurrentTarget()
 		local myHeroPos = GetOrigin(myHero)
 			if "Vladimir" == GetObjectName(myHero) then
-				DrawText(string.format("VladiFukFest %s", GetObjectName(myHero)),24,750,50,0xff00ff00);
+				--DrawText(string.format("VladiFukFest %s", GetObjectName(myHero)),24,750,50,0xff00ff00);
 				DrawDmgOverHpBar(target,GetCurrentHP(target),120,60,0xffffffff);
 					if Config.Combo and IsObjectAlive(target) then
 						if ValidTarget(target, 600) then
@@ -63,6 +63,6 @@ OnLoop(function(myHero)
 					end
 				
 			else
-				DrawText(string.format("%s not suported", GetObjectName(myHero)),24,750,50,0xffffff00)
+				--DrawText(string.format("%s not suported", GetObjectName(myHero)),24,750,50,0xffffff00)
 			end
 end)
