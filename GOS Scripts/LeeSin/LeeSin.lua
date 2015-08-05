@@ -1,6 +1,6 @@
 require('Inspired')
-require('twgank')
 require('IAC')
+require('WardJump')
 myIAC = IAC()
 local upv = "If you like UpVote!"
 local sig = "Made by TheWelder"
@@ -55,7 +55,7 @@ local targetPos = GetOrigin(target)
 						CastSkillShot(_Q,FQpred.PredPos.x,FQpred.PredPos.y,FQpred.PredPos.z)
 						CastTargetSpell(target,GetItemSlot(myHero,3153))
 						CastTargetSpell(target,GetItemSlot(myHero,3144))
-					end
+					else end
 				end
 			end		
 			if Config.E then
@@ -66,8 +66,7 @@ local targetPos = GetOrigin(target)
 						CastTargetSpell(target,GetItemSlot(myHero,3077))
 						CastTargetSpell(target,GetItemSlot(myHero,3074))
 						CastTargetSpell(target,GetItemSlot(myHero,3143))
-
-					end
+					else end
 				end
 			end
 			if Config.W then
