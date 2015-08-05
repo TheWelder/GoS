@@ -16,14 +16,13 @@ local champName = GetObjectName(Object)
 local Obj_Type = GetObjectType(Object)
 local target = GetCurrentTarget()
 local myRange = GetRange(myHero)
+if IsObjectAlive(Object) then --and IsInDistance(myHero,3000) then
 	if Obj_Type == Obj_AI_Hero then
 		if GetTeam(Object) == GetTeam(myHero) then
-			if IsObjectAlive(Object) and IsInDistance(myHero,3000) then
-				if GetRange(Object) > 450 then
+				--if GetRange(Object) > 450 then
 						local hero_origin = GetOrigin(Object)
 						MoveToXYZ(hero_origin.x-200,hero_origin.y-100,hero_origin.z-100)
-				end
-			end
+				--end
 		end
 	end
 end)	

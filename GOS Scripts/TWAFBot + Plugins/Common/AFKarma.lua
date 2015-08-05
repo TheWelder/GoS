@@ -22,8 +22,9 @@ local tarAttackRange = GetRange(target)
 	if "Karma" == GetObjectName(myHero) then
 		if ValidTarget(target,QRange) and IsInDistance(myHero,QRange) then
 			local QPred = GetPredictionForPlayer(myHeroPos, target,GetMoveSpeed(target),1400,250,QRange,55,true,true)
-			if CanUseSpell(myHero,_Q) == READY and QPred.HitChance == 1 then
+			if CanUseSpell(myHero,_Q) == READY or CanUseSpell(myHero,GetItemSlot(myHero,3092)) == READY and QPred.HitChance == 1 then
 				CastSkillShot(_Q,QPred.PredPos.x,QPred.PredPos.y,QPred.PredPos.z)
+				CastTargetSpell(target,GetItemSlot(myHero,3092))
 				AttackUnit(target)
 			end
 		end
