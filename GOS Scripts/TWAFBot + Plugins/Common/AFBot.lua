@@ -22,18 +22,18 @@ local myHeroPos = GetOrigin(myHero)
 			local Ally = Object
 				if IsObjectAlive(Ally) then
 					if GetRange(Ally) > 450  then
-						if IsInDistance(Ally,2000) then
+						if IsInDistance(Ally,1000) then
 							local hero_origin = GetOrigin(Ally)
 							if GetDistance(hero_origin,myHeroPos) > 600 then
 								MoveToXYZ(hero_origin.x-170,hero_origin.y,hero_origin.z+100)
 							end
 						end
-					elseif IsInDistance(Ally,2000) then 
+					elseif IsInDistance(Ally,1000) then 
 							local hero_origin = GetOrigin(Ally)
 							if GetDistance(hero_origin,myHeroPos) > 600 then
 								MoveToXYZ(hero_origin.x-170,hero_origin.y,hero_origin.z+100)
 							end
-					elseif IsInDistance(Ally,5000) then 
+					elseif IsInDistance(Ally,50000) then 
 							local hero_origin = GetOrigin(Ally)
 							if GetDistance(hero_origin,myHeroPos) > 600 then
 								MoveToXYZ(hero_origin.x-170,hero_origin.y,hero_origin.z+100)
