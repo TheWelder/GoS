@@ -4,33 +4,69 @@ require('AFTwitch')
 
 local upv = "If you like UpVote!"
 local sig = "Made by TheWelder"
-local ver = "1.0.0.5 3:23AM 5/08/2015"
+local ver = "1.0.0.5 1:08AM 6/08/2015"
 local info = "AFBot Loaded"
 textTable = {info,upv,sig,ver} 
 --PrintChat(textTable[1])
 --PrintChat(textTable[2])
 --PrintChat(textTable[3])
 --PrintChat(textTable[4])
-
 OnObjectLoop(function(Object,myHero)
 local champName = GetObjectName(Object)
 local Obj_Type = GetObjectType(Object)
 local target = GetCurrentTarget()
 local myRange = GetRange(myHero)
+local myHeroPos = GetOrigin(myHero)
 	if Obj_Type == Obj_AI_Hero then
-		if GetTeam(Object) == GetTeam(myHero) then
-			if IsObjectAlive(Object) then
-				if GetRange(Object) > 450 and IsInDistance(Object,5000) then
-						local hero_origin = GetOrigin(Object)
-						MoveToXYZ(hero_origin.x-170,hero_origin.y,hero_origin.z+100)
+		if GetTeam(Object) == GetTeam(myHero) then 
+			local Ally = Object
+				if IsObjectAlive(Ally) then
+					if GetRange(Ally) > 450  then
+						if IsInDistance(Ally,2000) then
+							local hero_origin = GetOrigin(Ally)
+							if GetDistance(hero_origin,myHeroPos) > 600 then
+								MoveToXYZ(hero_origin.x-170,hero_origin.y,hero_origin.z+100)
+							end
+						end
+					elseif IsInDistance(Ally,2000) then 
+							local hero_origin = GetOrigin(Ally)
+							if GetDistance(hero_origin,myHeroPos) > 600 then
+								MoveToXYZ(hero_origin.x-170,hero_origin.y,hero_origin.z+100)
+							end
+					elseif IsInDistance(Ally,5000) then 
+							local hero_origin = GetOrigin(Ally)
+							if GetDistance(hero_origin,myHeroPos) > 600 then
+								MoveToXYZ(hero_origin.x-170,hero_origin.y,hero_origin.z+100)
+							end
+					end
+					
 				end
+		elseif GetTeam(Object) ~= GetTeam(myHero) then 
+			local Enemy = Object
+			if IsInDistance(Enemy,800) then
+				AttackUnit(Object)
+			end
+		end
+	elseif Obj_Type == Obj_AI_Minion then
+		if GetTeam(Object) ~= GetTeam(myHero) then
+			local minion = Object
+			if IsInDistance(minion,400) then
+				AttackUnit(Object)
+			end
+		end
+	elseif Obj_Type == Obj_AI_Turret then
+		if GetTeam(Object) ~= GetTeam(myHero) then
+			local turret = Object
+			if IsInDistance(turret,400) then
+				AttackUnit(Object)
 			end
 		end
 	end
 end)	
 
-OnLoop(function(myHero)
 
+OnLoop(function(myHero)
+if "Karma" == GetObjectName(myHero) then
 	--SpellThief's Edge
 	if GetItemSlot(myHero,3092) == 0 or GetItemSlot(myHero,3092) < 1 then
 		if GetItemSlot(myHero,3303) == 0 or GetItemSlot(myHero,3303) < 1 then
@@ -219,4 +255,6 @@ OnLoop(function(myHero)
 	if GetItemSlot(myHero,3023) == 0 or GetItemSlot(myHero,3023) < 1 then
 		BuyItem(3023)
 	end
+end
+
 end)
