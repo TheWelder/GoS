@@ -21,19 +21,19 @@ local myHeroPos = GetOrigin(myHero)
 		if GetTeam(Object) == GetTeam(myHero) then 
 			local Ally = Object
 				if IsObjectAlive(Ally) then
-					if GetRange(Ally) > 450  then
+					if GetRange(Ally) > 450 then
 						if IsInDistance(Ally,1000) then
 							local hero_origin = GetOrigin(Ally)
 							if GetDistance(hero_origin,myHeroPos) > 600 then
 								MoveToXYZ(hero_origin.x-170,hero_origin.y,hero_origin.z+100)
 							end
 						end
-					elseif IsInDistance(Ally,1000) then 
+					elseif IsInDistance(Ally,1000) and GetRange(Ally) < 450 then 
 							local hero_origin = GetOrigin(Ally)
 							if GetDistance(hero_origin,myHeroPos) > 600 then
 								MoveToXYZ(hero_origin.x-170,hero_origin.y,hero_origin.z+100)
 							end
-					elseif IsInDistance(Ally,50000) then 
+					elseif IsInDistance(Ally,6000) then 
 							local hero_origin = GetOrigin(Ally)
 							if GetDistance(hero_origin,myHeroPos) > 600 then
 								MoveToXYZ(hero_origin.x-170,hero_origin.y,hero_origin.z+100)
@@ -90,7 +90,7 @@ if "Karma" == GetObjectName(myHero) then
 	if GetItemSlot(myHero,3020) == 0 or GetItemSlot(myHero,3020) < 1 then
 		BuyItem(3020)
 	end
-------------------------------------------------------------------------- Frost Queen's Claim Sequence --> THIS ITEM HAS BEEN DISABLE BY RIOT
+------------------------------------------------------------------------- Frost Queen's Claim Sequence --> THIS ITEM HAS BEEN REMOVED BY RIOT
 	--FrostFang
 	--[[if GetItemSlot(myHero,3092) == 0 or GetItemSlot(myHero,3092) < 1 then
 		if GetItemSlot(myHero,3098) == 0 or GetItemSlot(myHero,3098) < 1 then
