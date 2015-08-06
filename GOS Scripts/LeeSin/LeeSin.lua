@@ -1,6 +1,7 @@
 require('Inspired')
 require('IAC')
 require('WardJump')
+--require('twgank')
 myIAC = IAC()
 local upv = "If you like UpVote!"
 local sig = "Made by TheWelder"

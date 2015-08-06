@@ -1,5 +1,5 @@
 require('Inspired')
-require('twgank')
+--require('twgank')
 require('IAC')
 myIAC = IAC()
 local upv = "If you like UpVote!"
