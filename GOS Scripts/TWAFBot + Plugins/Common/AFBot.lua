@@ -11,54 +11,61 @@ textTable = {info,upv,sig,ver}
 --PrintChat(textTable[2])
 --PrintChat(textTable[3])
 --PrintChat(textTable[4])
+local isChampion = Obj_Type == Obj_AI_Hero 
+local Ally = GetTeam(Object) == GetTeam(myHero)
 OnObjectLoop(function(Object,myHero)
 local champName = GetObjectName(Object)
 local Obj_Type = GetObjectType(Object)
 local target = GetCurrentTarget()
 local myRange = GetRange(myHero)
 local myHeroPos = GetOrigin(myHero)
+local myHP = GetMaxHP(myHero)/GetCurrentHP(myHero)
 	if Obj_Type == Obj_AI_Hero then
 		if GetTeam(Object) == GetTeam(myHero) then 
 			local Ally = Object
 				if IsObjectAlive(Ally) then
-					if GetRange(Ally) > 450 then
-						if IsInDistance(Ally,1000) then
+					if GetRange(Ally) > 450 and GetBaseDamage(Ally) > 55 and IsInDistance(Ally,10000) then 
 							local hero_origin = GetOrigin(Ally)
-							if GetDistance(hero_origin,myHeroPos) > 600 then
+							if GetDistance(hero_origin,myHeroPos) > 500 then
+								MoveToXYZ(hero_origin.x-170,hero_origin.y,hero_origin.z+100)
+							end	
+					else 
+						if IsInDistance(Ally,2000) then 
+							local hero_origin = GetOrigin(Ally)
+							if GetDistance(hero_origin,myHeroPos) > 500 then
 								MoveToXYZ(hero_origin.x-170,hero_origin.y,hero_origin.z+100)
 							end
 						end
-					elseif IsInDistance(Ally,1000) and GetRange(Ally) < 450 then 
-							local hero_origin = GetOrigin(Ally)
-							if GetDistance(hero_origin,myHeroPos) > 600 then
-								MoveToXYZ(hero_origin.x-170,hero_origin.y,hero_origin.z+100)
-							end
-					elseif IsInDistance(Ally,6000) then 
-							local hero_origin = GetOrigin(Ally)
-							if GetDistance(hero_origin,myHeroPos) > 600 then
-								MoveToXYZ(hero_origin.x-170,hero_origin.y,hero_origin.z+100)
-							end
 					end
-					
 				end
-		elseif GetTeam(Object) ~= GetTeam(myHero) then 
+		end
+	elseif Obj_Type == Obj_AI_Hero then
+		if GetTeam(Object) == GetTeam(myHero) then
+		local Ally = Object
+			if myHP < 30 then
+				local hero_origin = GetOrigin(Ally)
+				MoveToXYZ(hero_origin.x-170,hero_origin.y,hero_origin.z+100)
+			end
+		end
+	elseif Obj_Type == Obj_AI_Hero then
+		if GetTeam(Object) ~= GetTeam(myHero) then 
 			local Enemy = Object
-			if IsInDistance(Enemy,800) then
-				AttackUnit(Object)
+			if IsInDistance(Enemy,500) and myHP > 40 then
+				AttackUnit(Enemy)
 			end
 		end
 	elseif Obj_Type == Obj_AI_Minion then
 		if GetTeam(Object) ~= GetTeam(myHero) then
 			local minion = Object
-			if IsInDistance(minion,400) then
-				AttackUnit(Object)
+			if IsInDistance(minion,600) then
+				AttackUnit(minion)
 			end
 		end
 	elseif Obj_Type == Obj_AI_Turret then
 		if GetTeam(Object) ~= GetTeam(myHero) then
 			local turret = Object
-			if IsInDistance(turret,400) then
-				AttackUnit(Object)
+			if IsInDistance(turret,600) then
+				AttackUnit(turret)
 			end
 		end
 	end
@@ -67,14 +74,14 @@ end)
 
 OnLoop(function(myHero)
 if "Karma" == GetObjectName(myHero) then
-	--SpellThief's Edge
+	--[[--SpellThief's Edge
 	if GetItemSlot(myHero,3092) == 0 or GetItemSlot(myHero,3092) < 1 then
 		if GetItemSlot(myHero,3303) == 0 or GetItemSlot(myHero,3303) < 1 then
 			if GetItemSlot(myHero,3098) == 0 or GetItemSlot(myHero,3098) < 1 then
 				BuyItem(3303)
 			end
 		end
-	end
+	end]]
 ------------------------------------------------------------------------- Health Pot's
 	if GetItemSlot(myHero,2003) == 0 or GetItemSlot(myHero,2003) < 3 then
 			BuyItem(2003)
@@ -255,6 +262,62 @@ if "Karma" == GetObjectName(myHero) then
 	if GetItemSlot(myHero,3023) == 0 or GetItemSlot(myHero,3023) < 1 then
 		BuyItem(3023)
 	end
+end
+
+if GetLevel(myHero) == 1 then
+	LevelSpell(_Q)
+end
+if GetLevel(myHero) == 2 then
+	LevelSpell(_W)
+end
+if GetLevel(myHero) == 3 then
+	LevelSpell(_E)
+end
+ 
+if GetLevel(myHero) == 4 then
+	LevelSpell(_Q)
+end
+ if GetLevel(myHero) == 5 then
+	LevelSpell(_W)
+end
+ if GetLevel(myHero) == 6 then
+	LevelSpell(_R)
+end
+ if GetLevel(myHero) == 7 then
+	LevelSpell(_Q)
+end
+ if GetLevel(myHero) == 8 then
+	LevelSpell(_W)
+end
+ if GetLevel(myHero) == 9 then
+	LevelSpell(_Q)
+end
+ if GetLevel(myHero) == 10 then
+	LevelSpell(_E)
+end
+ if GetLevel(myHero) == 11 then
+	LevelSpell(_R)
+end
+ if GetLevel(myHero) == 12 then
+	LevelSpell(_Q)
+end
+ if GetLevel(myHero) == 13 then
+	LevelSpell(_W)
+end
+ if GetLevel(myHero) == 14 then
+	LevelSpell(_E)
+end
+ if GetLevel(myHero) == 15 then
+	LevelSpell(_W)
+end
+ if GetLevel(myHero) == 16 then
+	LevelSpell(_R)
+end
+ if GetLevel(myHero) == 17 then
+	LevelSpell(_E)
+end
+ if GetLevel(myHero) == 18 then
+	LevelSpell(_E)
 end
 
 end)
