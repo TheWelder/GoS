@@ -1,16 +1,16 @@
 require('Inspired')
 require('IAC')
---require('twgank')
+require('twgank')
 myIAC = IAC()
 local upv = "If you like UpVote!"
 local sig = "Made by TheWelder"
 local ver = "1.0.0.5 12:23AM 3/08/2015"
 local info = "TWKarma Loaded"
 textTable = {info,upv,sig,ver} 
---PrintChat(textTable[1])
---PrintChat(textTable[2])
---PrintChat(textTable[3])
---PrintChat(textTable[4])
+PrintChat(textTable[1])
+PrintChat(textTable[2])
+PrintChat(textTable[3])
+PrintChat(textTable[4])
 
 Config = scriptConfig("karma", "TWKarma")
 Config.addParam("Q", "Use Q", SCRIPT_PARAM_ONOFF, true)
@@ -33,6 +33,7 @@ local tarAttackRange = GetRange(target)
 		AutoBuy()
 	end
 	if "Karma" == GetObjectName(myHero) then
+	DrawText(string.format("TW %s Loaded", GetObjectName(myHero)),24,750,50,0xff00ff00)
 		if Config.Combo then
 			if Config.Q then
 				if ValidTarget(target,QRange) and IsInDistance(myHero,QRange) then
@@ -69,7 +70,7 @@ local tarAttackRange = GetRange(target)
 			end
 		end
 	else
-		--DrawText(string.format("%s not suported", GetObjectName(myHero)),24,750,50,0xffffff00)
+		DrawText(string.format("%s not suported", GetObjectName(myHero)),24,750,50,0xffffff00)
 	end
 end)
 

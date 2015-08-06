@@ -1,4 +1,4 @@
 require('Inspired')
 require('IAC')
---require('twgank')
+require('twgank')
 pcall(require, GetObjectName(GetMyHero()))

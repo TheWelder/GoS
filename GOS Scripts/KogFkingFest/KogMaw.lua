@@ -1,5 +1,5 @@
 require('Inspired')
---require('twgank')
+require('twgank')
 require('IAC')
 myIAC = IAC()
 local upv = "If you like UpVote!"
@@ -8,10 +8,10 @@ local ver = "1.0.0.5 12:23AM 3/08/2015"
 local info = "KogFkingMaw Loaded"
 
 textTable = {info,upv,sig,ver} 
---PrintChat(textTable[1])
---PrintChat(textTable[2])
---PrintChat(textTable[3])
---PrintChat(textTable[4]) 
+PrintChat(textTable[1])
+PrintChat(textTable[2])
+PrintChat(textTable[3])
+PrintChat(textTable[4]) 
 
 Config = scriptConfig("kogmaw", "KogFkingMaw")
 Config.addParam("Q", "Use Q", SCRIPT_PARAM_ONOFF, true)
@@ -28,7 +28,7 @@ local WRange = GetCastRange(myHero,_W)
 		local myHeroPos = GetOrigin(myHero)
 		local ManaPer = GetCurrentMana(myHero)/GetMaxMana(myHero)
 			if "KogMaw" == GetObjectName(myHero) then
-				--DrawText(string.format("KogFkingMaw %s ", GetObjectName(myHero)),24,750,50,0xff00ff00);
+				DrawText(string.format("KogFkingMaw %s ", GetObjectName(myHero)),24,750,50,0xff00ff00);
 				DrawDmgOverHpBar(target,GetCurrentHP(target),120,60,0xffffffff);
 					if Config.Combo and IsObjectAlive(target) then
 						if ValidTarget(target, 1000) then
@@ -68,7 +68,7 @@ local WRange = GetCastRange(myHero,_W)
 					end
 				
 			else
-				--DrawText(string.format("%s not suported", GetObjectName(myHero)),24,750,50,0xffffff00)
+				DrawText(string.format("%s not suported", GetObjectName(myHero)),24,750,50,0xffffff00)
 			end
 end)
 

@@ -7,10 +7,10 @@ local sig = "Made by TheWelder"
 local ver = "1.0.0.5 1:08AM 6/08/2015"
 local info = "AFBot Loaded"
 textTable = {info,upv,sig,ver} 
---PrintChat(textTable[1])
---PrintChat(textTable[2])
---PrintChat(textTable[3])
---PrintChat(textTable[4])
+PrintChat(textTable[1])
+PrintChat(textTable[2])
+PrintChat(textTable[3])
+PrintChat(textTable[4])
 local isChampion = Obj_Type == Obj_AI_Hero 
 local Ally = GetTeam(Object) == GetTeam(myHero)
 OnObjectLoop(function(Object,myHero)
