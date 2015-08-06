@@ -90,9 +90,9 @@ if "Karma" == GetObjectName(myHero) then
 	if GetItemSlot(myHero,3020) == 0 or GetItemSlot(myHero,3020) < 1 then
 		BuyItem(3020)
 	end
-------------------------------------------------------------------------- Frost Queen's Claim Sequence
+------------------------------------------------------------------------- Frost Queen's Claim Sequence --> THIS ITEM HAS BEEN DISABLE BY RIOT
 	--FrostFang
-	if GetItemSlot(myHero,3092) == 0 or GetItemSlot(myHero,3092) < 1 then
+	--[[if GetItemSlot(myHero,3092) == 0 or GetItemSlot(myHero,3092) < 1 then
 		if GetItemSlot(myHero,3098) == 0 or GetItemSlot(myHero,3098) < 1 then
 			BuyItem(3098)
 		end
@@ -114,7 +114,7 @@ if "Karma" == GetObjectName(myHero) then
 	--Frost Queen's Claim
 	if GetItemSlot(myHero,3092) == 0 or GetItemSlot(myHero,3092) < 1 then
 		BuyItem(3092)
-	end
+	end]]
 ------------------------------------------------------------------------- Liandry's Torment Sequence
 	--Ruby Crystal
 	if GetItemSlot(myHero,3151) == 0 or GetItemSlot(myHero,3151) < 1 then
