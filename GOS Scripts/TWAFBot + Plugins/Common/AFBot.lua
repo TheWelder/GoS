@@ -1,6 +1,6 @@
 require('Inspired')
 require('AFKarma')
-require('AFTwitch')
+--require('AFTwitch')
 
 local upv = "If you like UpVote!"
 local sig = "Made by TheWelder"
