@@ -17,14 +17,20 @@ local WRange = GetCastRange(myHero,_W)
 local ERange = GetCastRange(myHero,_E)
 local RRange = GetCastRange(myHero,_E)
 local target = GetCurrentTarget()
+local targetPos = GetOrigin(target)
 local myAttackRange = GetRange(myHero)
 local tarAttackRange = GetRange(target)
 	if "Sion" == GetObjectName(myHero) then
 		if Config.Combo and IsObjectAlive(target) then
 			if Config.Q and ValidTarget(target,600) and IsInDistance(myHero,600) then
 				local QPred = GetPredictionForPlayer(myHeroPos, target,GetMoveSpeed(target),1400,250,600,55,true,true)
-				if CanUseSpell(myHero,_Q) == READY then
+				if CanUseSpell(myHero,_Q) == READY then--and GotBuff(target,"sioneslow") > 0 then
 					CastSkillShot(_Q,QPred.PredPos.x,QPred.PredPos.y,QPred.PredPos.z)
+				end
+					local p1, nextTick = GetOrigin(target), GetTickCount()
+					if GetTickCount() > nextTick + 1000 and p1.x == GetOrigin(target).x then
+					PrintChat(string.format("<font color='#1244EA'>[CloudAIO]</font> <font color='#FFFFFF'>Gnar Loaded</font>"))
+						CastSkillShot2(_Q)
 				end
 			end
 			if Config.W and ValidTarget(target,WRange) and IsInDistance(myHero,WRange) then
@@ -33,15 +39,16 @@ local tarAttackRange = GetRange(target)
 				end
 			end
 			if Config.E and ValidTarget(target,ERange) and IsInDistance(myHero,ERange) then
-				local EPred = GetPredictionForPlayer(myHeroPos, target,GetMoveSpeed(target),1400,250,ERange,55,true,true)
+				local QPred = GetPredictionForPlayer(myHeroPos, target,GetMoveSpeed(target),1400,250,ERange,55,true,true)
 				if CanUseSpell(myHero,_E) == READY then
-					CastSkillShot(_E,EPred.PredPos.x,EPred.PredPos.y,EPred.PredPos.z)
+					CastSkillShot(_E,QPred.PredPos.x,QPred.PredPos.y,QPred.PredPos.z)
 				end
 			end
-			if Config.R and ValidTarget(target,1000) and IsInDistance(myHero,1000) then
-				local RPred = GetPredictionForPlayer(myHeroPos, target,GetMoveSpeed(target),1400,250,1000,55,true,true)
-				if CanUseSpell(myHero,_E) == READY then
-					CastSkillShot(_R,RPred.PredPos.x,RPred.PredPos.y,RPred.PredPos.z)
+			if Config.R and ValidTarget(target,1000) then
+				local QPred = GetPredictionForPlayer(myHeroPos, target,GetMoveSpeed(target),1400,250,1000,55,true,true)
+				if CanUseSpell(myHero,_R) == READY then--and GotBuff(target,"sioneslow") > 0 then
+					MoveToXYZ(targetPos.x,targetPos.z,targetPos.y)
+					CastSkillShot(_R,QPred.PredPos.x,QPred.PredPos.y,QPred.PredPos.z)
 				end
 			end
 		end
