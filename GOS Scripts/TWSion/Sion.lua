@@ -15,6 +15,7 @@ local myHeroPos = GetOrigin(myHero)
 local QRange = GetCastRange(myHero,_Q)
 local WRange = GetCastRange(myHero,_W)
 local ERange = GetCastRange(myHero,_E)
+local RRange = GetCastRange(myHero,_E)
 local target = GetCurrentTarget()
 local myAttackRange = GetRange(myHero)
 local tarAttackRange = GetRange(target)
@@ -35,6 +36,13 @@ local tarAttackRange = GetRange(target)
 			end
 			if Config.E and ValidTarget(target,ERange) and IsInDistance(myHero,ERange) then
 				local QPred = GetPredictionForPlayer(myHeroPos, target,GetMoveSpeed(target),1400,250,ERange,55,true,true)
+				if CanUseSpell(myHero,_E) == READY then
+					CastSkillShot(_E,QPred.PredPos.x,QPred.PredPos.y,QPred.PredPos.z)
+					AttackUnit(target)
+				end
+			end
+			if Config.R and ValidTarget(target,1000) and IsInDistance(myHero,1000) then
+				local QPred = GetPredictionForPlayer(myHeroPos, target,GetMoveSpeed(target),1400,250,1000,55,true,true)
 				if CanUseSpell(myHero,_E) == READY then
 					CastSkillShot(_E,QPred.PredPos.x,QPred.PredPos.y,QPred.PredPos.z)
 					AttackUnit(target)
