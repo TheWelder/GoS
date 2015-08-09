@@ -11,7 +11,17 @@ Config.addParam("AB", "AutoBuy", SCRIPT_PARAM_ONOFF, true)
 Config.addParam("Combo", "Combo", SCRIPT_PARAM_KEYDOWN, string.byte(" "))
 
 OnLoop(function(myHero)
-if "Elise" == GetObjectName(myHero) then
+local myHero = GetMyHero()
+local myHeroPos = GetOrigin(myHero)
+local QRange = GetCastRange(myHero,_Q)
+local WRange = GetCastRange(myHero,_W)
+local ERange = GetCastRange(myHero,_E)
+local target = GetCurrentTarget()
+local myAttackRange = GetRange(myHero)
+local tarAttackRange = GetRange(target)
+
+
+	if "Elise" == GetObjectName(myHero) then
 		if Config.Q and ValidTarget(target,QRange) and IsInDistance(myHero,QRange) then
 			if CanUseSpell(myHero,_Q) == READY then
 				CastTargetSpell(target,_Q)
