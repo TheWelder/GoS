@@ -22,32 +22,34 @@ local tarAttackRange = GetRange(target)
 
 
 	if "Elise" == GetObjectName(myHero) then
-		if Config.Q and ValidTarget(target,QRange) and IsInDistance(myHero,QRange) then
-			if CanUseSpell(myHero,_Q) == READY then
-				CastTargetSpell(target,_Q)
+		if Config.Combo and IsObjectAlive(target) then
+			if Config.Q and ValidTarget(target,QRange) and IsInDistance(myHero,QRange) then
+				if CanUseSpell(myHero,_Q) == READY then
+					CastTargetSpell(target,_Q)
+				end
+			end
+			if Config.W and ValidTarget(target,WRange) and IsInDistance(myHero,WRange) then
+				local QPred = GetPredictionForPlayer(myHeroPos, target,GetMoveSpeed(target),1400,250,WRange,55,true,true)
+				if CanUseSpell(myHero,_W) == READY then
+					CastSkillShot(_W,QPred.PredPos.x,QPred.PredPos.y,QPred.PredPos.z)
+				end
+			end
+			if Config.E and ValidTarget(target,ERange) and IsInDistance(myHero,ERange) then
+				local QPred = GetPredictionForPlayer(myHeroPos, target,GetMoveSpeed(target),1400,250,ERange,55,true,true)
+				if CanUseSpell(myHero,_E) == READY then
+					CastSkillShot(_E,QPred.PredPos.x,QPred.PredPos.y,QPred.PredPos.z)
+				end
+			end
+			if ValidTarget(target,QRange) and IsInDistance(myHero,QRange) then
+				if CanUseSpell(myHero,_R) == READY and CanUseSpell(myHero,_Q) == ONCOOLDOWN and CanUseSpell(myHero,_W) == ONCOOLDOWN then
+					CastSpell(_R)
+				end
 			end
 		end
-		if Config.W and ValidTarget(target,WRange) and IsInDistance(myHero,WRange) then
-			local QPred = GetPredictionForPlayer(myHeroPos, target,GetMoveSpeed(target),1400,250,WRange,55,true,true)
-			if CanUseSpell(myHero,_W) == READY then
-				CastSkillShot(_W,QPred.PredPos.x,QPred.PredPos.y,QPred.PredPos.z)
-			end
-		end
-		if Config.E and ValidTarget(target,ERange) and IsInDistance(myHero,ERange) then
-			local QPred = GetPredictionForPlayer(myHeroPos, target,GetMoveSpeed(target),1400,250,ERange,55,true,true)
-			if CanUseSpell(myHero,_E) == READY then
-				CastSkillShot(_E,QPred.PredPos.x,QPred.PredPos.y,QPred.PredPos.z)
-			end
-		end
-		if ValidTarget(target,QRange) and IsInDistance(myHero,QRange) then
-			if CanUseSpell(myHero,_R) == READY and CanUseSpell(myHero,_Q) == ONCOOLDOWN and CanUseSpell(myHero,_W) == ONCOOLDOWN then
-				CastSpell(_R)
-			end
-		end
-		if Config.AB then
-			if GetItemSlot(myHero,2003) == 0 or GetItemSlot(myHero,2003) < 3 then
-				BuyItem(2003)
-			end
+			if Config.AB then
+				if GetItemSlot(myHero,2003) == 0 or GetItemSlot(myHero,2003) < 3 then
+					BuyItem(2003)
+				end
 		------------------------------------------------------------------------- Sorcerer's Shoes Sequence
 			-- Boots of Speed
 			if GetItemSlot(myHero,3020) == 0 or GetItemSlot(myHero,3020) < 1 then
