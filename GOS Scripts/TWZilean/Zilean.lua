@@ -39,14 +39,14 @@ local tarAttackRange = GetRange(target)
 					CastSpell(_E)
 				end
 			end
-			if Config.R and ValidTarget(target,myAttackRange) and IsInDistance(myHero,myAttackRange) then
-				if GetCurrentHP(myHero)*100/GetMaxHP(myHero) < 20 then 
-					if CanUseSpell(myHero,_R) == READY then
-						CastSpell(_R)
-					end
+		end	
+		if Config.R then
+			if GetCurrentHP(myHero)*100/GetMaxHP(myHero) < 20 then 
+				if CanUseSpell(myHero,_R) == READY then
+					CastTargetSpell(myHero,_R)
 				end
 			end
-		end	
+		end
 	end
 
 end)
