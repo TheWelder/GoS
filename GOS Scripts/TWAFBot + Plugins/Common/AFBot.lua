@@ -69,8 +69,8 @@ local myHP = GetMaxHP(myHero)/GetCurrentHP(myHero)
 				if IsObjectAlive(minion) and IsInDistance(minion,600) then
 					if GetBaseDamage(myHero) > GetCurrentHP(minion) then
 						AttackUnit(minion)
-					else
-						AttackUnit(minion)
+					--else
+						--AttackUnit(minion)
 					end
 				end
 			end
