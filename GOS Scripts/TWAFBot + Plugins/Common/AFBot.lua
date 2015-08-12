@@ -1,4 +1,4 @@
-require('Inspired')
+--require('Inspired')
 require('AFPlugins')
 alliedHeroes = {}
 finishedAllies = false
