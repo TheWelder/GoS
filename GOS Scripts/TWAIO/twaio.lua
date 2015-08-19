@@ -593,6 +593,33 @@ local tarAttackRange = GetRange(target)
 			end
 		end
 	end
+	if GetObjectName(myHero) == "Anivia" then
+		if Config.Combo and IsObjectAlive(target) then
+			if Config.Q and ValidTarget(target,QRange) and IsInDistance(myHero,QRange) then
+				local QPred = GetPredictionForPlayer(myHeroPos, target,GetMoveSpeed(target),1400,250,QRange,55,true,true)
+				if CanUseSpell(myHero,_Q) == READY then
+					CastSkillShot(_Q,QPred.PredPos.x,QPred.PredPos.y,QPred.PredPos.z)
+				end
+			end
+			if Config.W and ValidTarget(target,WRange) and IsInDistance(myHero,WRange) then
+				local WPred = GetPredictionForPlayer(myHeroPos, target,GetMoveSpeed(target),1400,250,WRange,55,true,true)
+				if CanUseSpell(myHero,_Q) == READY then
+					CastSkillShot(_Q,WPred.PredPos.x,WPred.PredPos.y,WPred.PredPos.z)
+				end
+			end
+			if Config.E and ValidTarget(target,ERange) and IsInDistance(myHero,ERange) then
+				if CanUseSpell(myHero,_E) == READY then
+					CastTargetSpell(_E)
+				end
+			end
+			if Config.R and ValidTarget(target,RRange) and IsInDistance(myHero,RRange) then
+				local RPred = GetPredictionForPlayer(myHeroPos, target,GetMoveSpeed(target),1400,250,RRange,55,true,true)
+				if CanUseSpell(myHero,_R) == READY then
+					CastSkillShot(_R,RPred.PredPos.x,RPred.PredPos.y,RPred.PredPos.z)
+				end
+			end
+		end
+	end
 end)
 
 function XlosestMinion(pos, team)
