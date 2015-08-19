@@ -500,6 +500,31 @@ local tarAttackRange = GetRange(target)
 				end
 			end
 		end
+	if "Annie" == GetObjectName(myHero) then
+		if Config.Combo and IsObjectAlive(target) then
+			if Config.Q and ValidTarget(target,QRange) and IsInDistance(myHero,QRange) then
+				if CanUseSpell(myHero,_Q) == READY then
+					CastTargetSpell(target,_Q)
+				end
+			end
+			if Config.W and ValidTarget(target,QRange) and IsInDistance(myHero,QRange) then
+				if CanUseSpell(myHero,_E) == READY then
+					CastSpell(myHero,_E)
+				end
+			end
+			if Config.E and ValidTarget(target,ERange) and IsInDistance(myHero,ERange) then
+				local EPred = GetPredictionForPlayer(myHeroPos, target,GetMoveSpeed(target),1400,250,ERange,55,true,true)
+				if CanUseSpell(myHero,_E) == READY then
+					CastSkillShot(_E,EPred.PredPos.x,EPred.PredPos.y,EPred.PredPos.z)
+				end
+			end
+			if Config.R and ValidTarget(target,RRange) and IsInDistance(myHero,RRange) then
+				local RPred = GetPredictionForPlayer(myHeroPos, target,GetMoveSpeed(target),1400,250,RRange,55,true,true)
+				if CanUseSpell(myHero,_R) == READY then
+					CastSkillShot(_R,RPred.PredPos.x,RPred.PredPos.y,RPred.PredPos.z)
+				end
+			end
+		end
 	else
 	DrawText(string.format("%s not suported", GetObjectName(myHero)),24,750,50,0xffffff00)
 	end
