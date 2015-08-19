@@ -608,6 +608,28 @@ local tarAttackRange = GetRange(target)
 				end
 			end
 		end
+	elseif GetObjectName(myHero) == "MasterYi" then
+		if Config.Q and ValidTarget(target, QRange) then
+			if CanUseSpell(myHero, _Q) == READY then
+				CastTargetSpell(myHero,_Q)
+			end
+		end
+		if Config.W and GetCurrentHP(myHero)/GetMaxHP(myHero) < 20 then 
+			if CanUseSpell(myHero,_W) == READY then
+				CastSpell(_W)
+			end
+		end
+		if Config.E and ValidTarget(target,myAttackRange) then
+			if CanUseSpell(myHero,_E) == READY then
+				CastTargetSpell(myHero,_E)
+			end
+		end	
+		if Config.R and ValidTarget(target,QRange) then
+			if CanUseSpell(myHero,_R) == READY and CanUseSpell(myHero,_E) == READY then
+				CastSpell(_R)
+			end
+		end
+	end
 	else
 	DrawText(string.format("%s not suported", GetObjectName(myHero)),24,750,50,0xffffff00)
 	end
