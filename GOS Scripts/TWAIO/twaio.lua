@@ -56,163 +56,6 @@ local tarAttackRange = GetRange(target)
 				end
 			end
 		end
-			if Config.AB then
-				if GetItemSlot(myHero,2003) == 0 or GetItemSlot(myHero,2003) < 3 then
-					BuyItem(2003)
-				end
-		------------------------------------------------------------------------- Sorcerer's Shoes Sequence
-			-- Boots of Speed
-			if GetItemSlot(myHero,3020) == 0 or GetItemSlot(myHero,3020) < 1 then
-				if GetItemSlot(myHero,1001) == 0 or GetItemSlot(myHero,1001) < 1 then
-					BuyItem(1001)
-				end
-			end
-			-- Sorcerer's Shoes
-			if GetItemSlot(myHero,3020) == 0 or GetItemSlot(myHero,3020) < 1 then
-				BuyItem(3020)
-			end
-		------------------------------------------------------------------------- Liandry's Torment Sequence
-			--Ruby Crystal
-			if GetItemSlot(myHero,3151) == 0 or GetItemSlot(myHero,3151) < 1 then
-				if GetItemSlot(myHero,3136) == 0 or GetItemSlot(myHero,3136) < 1 then
-					if GetItemSlot(myHero,1028) == 0 or GetItemSlot(myHero,1028) < 1 then
-						BuyItem(1028)
-					end
-				end
-			end
-			--Amplifying Tome
-			if GetItemSlot(myHero,3151) == 0 or GetItemSlot(myHero,3151) < 1 then
-				if GetItemSlot(myHero,3136) == 0 or GetItemSlot(myHero,3136) < 1 then
-					if GetItemSlot(myHero,1052) == 0 or GetItemSlot(myHero,1052) < 1 then
-						BuyItem(1052)
-					end
-				end
-			end
-			--Blasting Wand
-			if GetItemSlot(myHero,3151) == 0 or GetItemSlot(myHero,3151) < 1 then
-				if GetItemSlot(myHero,1026) == 0 or GetItemSlot(myHero,1026) < 1 then
-					BuyItem(1026)
-				end
-			end
-			--Liandry's Torment
-			if GetItemSlot(myHero,3151) == 0 or GetItemSlot(myHero,3151) < 1 then
-				BuyItem(3151)
-			end
-		------------------------------------------------------------------------- Athene's Unholy Grail Sequence
-			--Amplifying Tome
-			if GetItemSlot(myHero,2700) == 0 or GetItemSlot(myHero,2700) < 1 then
-				if GetItemSlot(myHero,1052) == 0 or GetItemSlot(myHero,1052) < 1 then
-					if GetItemSlot(myHero,3108) == 0 or GetItemSlot(myHero,3108) < 1 then
-						BuyItem(1052)
-					end
-				end
-			end
-			--Fiendish Codex
-			if GetItemSlot(myHero,2700) == 0 or GetItemSlot(myHero,2700) < 1 then
-				if GetItemSlot(myHero,3108) == 0 or GetItemSlot(myHero,3108) < 1 then
-					BuyItem(3108)
-				end
-			end
-			-- Faerie Charm
-			if GetItemSlot(myHero,2700) == 0 or GetItemSlot(myHero,2700) < 1 then
-				if GetItemSlot(myHero,3028) == 0 or GetItemSlot(myHero,3028) < 1 then
-					if GetItemSlot(myHero,1004) == 0 or GetItemSlot(myHero,1004) < 2 then
-						BuyItem(1004)
-					end
-				end
-			end
-			-- Null-Magic Mantle
-			if GetItemSlot(myHero,2700) == 0 or GetItemSlot(myHero,2700) < 1 then
-				if GetItemSlot(myHero,1033) == 0 or GetItemSlot(myHero,1033) < 1 then
-					BuyItem(1033)
-				end
-			end
-			--Amplifying Tome
-			if GetItemSlot(myHero,2700) == 0 or GetItemSlot(myHero,2700) < 1 then
-				if GetItemSlot(myHero,1052) == 0 or GetItemSlot(myHero,1052) < 1 then
-					BuyItem(1052)
-				end
-			end
-			-- Athene's Unholy Grail
-			if GetItemSlot(myHero,2700) == 0 or GetItemSlot(myHero,2700) < 1 then
-				BuyItem(2700)
-			end
-		------------------------------------------------------------------------- Morellonomicon Sequence
-
-			--Amplifying Tome
-			if GetItemSlot(myHero,3165) == 0 or GetItemSlot(myHero,3165) < 1 then
-				if GetItemSlot(myHero,1052) == 0 or GetItemSlot(myHero,1052) < 1 then
-					if GetItemSlot(myHero,3108) == 0 or GetItemSlot(myHero,3108) < 1 then
-						BuyItem(1052)
-					end
-				end
-			end
-			--Fiendish Codex
-			if GetItemSlot(myHero,3165) == 0 or GetItemSlot(myHero,3165) < 1 then
-				if GetItemSlot(myHero,3108) == 0 or GetItemSlot(myHero,3108) < 1 then
-					BuyItem(3108)
-				end
-			end
-			-- Faerie Charm
-			if GetItemSlot(myHero,3165) == 0 or GetItemSlot(myHero,3165) < 1 then
-				if GetItemSlot(myHero,3114) == 0 or GetItemSlot(myHero,3114) < 1 then
-					if GetItemSlot(myHero,1004) == 0 or GetItemSlot(myHero,1004) < 2 then
-						BuyItem(1004)
-					end
-				end
-			end
-			-- Forbidden Idol
-			if GetItemSlot(myHero,3165) == 0 or GetItemSlot(myHero,3165) < 1 then
-				if GetItemSlot(myHero,3114) == 0 or GetItemSlot(myHero,3114) < 1 then
-					BuyItem(3114)
-				end
-			end
-				--Amplifying Tome
-			if GetItemSlot(myHero,3165) == 0 or GetItemSlot(myHero,3165) < 1 then
-				if GetItemSlot(myHero,1052) == 0 or GetItemSlot(myHero,1052) < 1 then
-					BuyItem(1052)
-				end
-			end
-			-- Morellonomicon
-			if GetItemSlot(myHero,3165) == 0 or GetItemSlot(myHero,3165) < 1 then
-				BuyItem(3165)
-			end
-			------------------------------------------------------------------------- Twin Shadows Sequence
-			
-			--Amplifying Tome
-			if GetItemSlot(myHero,3023) == 0 or GetItemSlot(myHero,3023) < 1 then
-				if GetItemSlot(myHero,1052) == 0 or GetItemSlot(myHero,1052) < 1 then
-					if GetItemSlot(myHero,3108) == 0 or GetItemSlot(myHero,3108) < 1 then
-						BuyItem(1052)
-					end
-				end
-			end
-			--Fiendish Codex
-			if GetItemSlot(myHero,3023) == 0 or GetItemSlot(myHero,3023) < 1 then
-				if GetItemSlot(myHero,3108) == 0 or GetItemSlot(myHero,3108) < 1 then
-					BuyItem(3108)
-				end
-			end
-				--Amplifying Tome
-			if GetItemSlot(myHero,3023) == 0 or GetItemSlot(myHero,3023) < 1 then
-				if GetItemSlot(myHero,1052) == 0 or GetItemSlot(myHero,1052) < 1 then
-					if GetItemSlot(myHero,3113) == 0 or GetItemSlot(myHero,3113) < 1 then
-						BuyItem(1052)
-					end
-				end
-			end
-			-- Aether Wisp
-			if GetItemSlot(myHero,3023) == 0 or GetItemSlot(myHero,3023) < 1 then
-				if GetItemSlot(myHero,3113) == 0 or GetItemSlot(myHero,3113) < 1 then
-					BuyItem(3113)
-				end
-			end
-			-- Twin Shadows
-			if GetItemSlot(myHero,3023) == 0 or GetItemSlot(myHero,3023) < 1 then
-				BuyItem(3023)
-			end
-
-		end
 	elseif "Graves" == GetObjectName(myHero) then
 		DrawDmgOverHpBar(target,GetCurrentHP(target),120,60,0xffffffff);
 		if Config.Combo and IsObjectAlive(target) then
@@ -280,9 +123,6 @@ local tarAttackRange = GetRange(target)
 				end
 			end
 	elseif "Karma" == GetObjectName(myHero) then
-		if Config.AB then
-			AutoBuy()
-		end
 		if Config.Combo then
 			if Config.Q then
 				if ValidTarget(target,QRange) and IsInDistance(myHero,QRange) then
@@ -326,7 +166,7 @@ local tarAttackRange = GetRange(target)
 					if CanUseSpell(myHero, _R) == READY and RPred.HitChance == 1 then
 						if ManaPer > 0.40 then
 						CastSkillShot(_R,RPred.PredPos.x,RPred.PredPos.y,RPred.PredPos.z)
-						else end
+						end
 					end
 				end
 			end
@@ -361,11 +201,9 @@ local tarAttackRange = GetRange(target)
 	local Qdmg = (GetCastLevel(myHero,_Q)*30)+50+perc90
 	local Edmg =(GetCastLevel(myHero,_E)*35)+25+allDMG
 	local Rdmg = (GetCastLevel(myHero,_R)*200)+(allDMG*2)
-
 	local minionPos = GetOrigin(minion)
 	local hero_origin = myHeroPos
 	local targetPos = GetOrigin(target)
-
 			if Config.Combo and IsObjectAlive(target) then
 				if Config.Q then
 					if ValidTarget(target,1000) then
@@ -613,26 +451,54 @@ local tarAttackRange = GetRange(target)
 	local baseDMG = GetBaseDamage(myHero)
 	local RskillAS = 0.65 * (GetAttackSpeed(myHero) + 0.65 * ((GetCastLevel(myHero,_R)*0.25)+0.05))
 	local Rdmg = (10*RskillAS)*baseDMG 
-		if Config.Q and ValidTarget(target, QRange) then
-			if CanUseSpell(myHero, _Q) == READY then
-				CastTargetSpell(myHero,_Q)
-			end
-		end
-		if Config.W and GetCurrentHP(myHero)/GetMaxHP(myHero) < 20 then 
-			if CanUseSpell(myHero,_W) == READY then
-				CastSpell(_W)
-			end
-		end
-		if Config.E and ValidTarget(target,myAttackRange) then
-			if CanUseSpell(myHero,_E) == READY then
-				CastTargetSpell(myHero,_E)
-			end
-		end	
-		if Config.R and ValidTarget(target,myAttackRange) then
-			if CalcDamage(myHero, target, Rdmg) > GetCurrentHP(target) + GetHPRegen(target) then
-				if CanUseSpell(myHero,_R) == READY and CanUseSpell(myHero,_E) == READY then
-					CastSpell(_R)
+		if Config.Combo and IsObjectAlive(target) then
+			if Config.Q and ValidTarget(target, QRange) then
+				if CanUseSpell(myHero, _Q) == READY then
+					CastTargetSpell(myHero,_Q)
 				end
+			end
+			if Config.W and GetCurrentHP(myHero)/GetMaxHP(myHero) < 20 then 
+				if CanUseSpell(myHero,_W) == READY then
+					CastSpell(_W)
+				end
+			end
+			if Config.E and ValidTarget(target,myAttackRange) then
+				if CanUseSpell(myHero,_E) == READY then
+					CastTargetSpell(myHero,_E)
+				end
+			end	
+			if Config.R and ValidTarget(target,myAttackRange) then
+				if CalcDamage(myHero, target, Rdmg) > GetCurrentHP(target) + GetHPRegen(target) then
+					if CanUseSpell(myHero,_R) == READY and CanUseSpell(myHero,_E) == READY then
+						CastSpell(_R)
+					end
+				end
+			end
+		end
+	elseif "Fizz" == GetObjectName(myHero) then
+		if Config.Combo and IsObjectAlive(target) then
+			if Config.Q and ValidTarget(target,ERange) and IsInDistance(myHero,ERange) then
+				local QPred = GetPredictionForPlayer(myHeroPos, target,GetMoveSpeed(target),1400,250,ERange,55,true,true)
+				if CanUseSpell(myHero,_E) == READY then
+					CastSkillShot(_E,QPred.PredPos.x,QPred.PredPos.y,QPred.PredPos.z)
+				end
+			end
+			if Config.W and ValidTarget(target,myAttackRange) and IsInDistance(myHero,myAttackRange) then
+				if CanUseSpell(myHero,_W) == READY then
+					CastSpell(_W)
+				end
+			end
+			if Config.E and ValidTarget(target,QRange) and IsInDistance(myHero,QRange) then
+				if CanUseSpell(myHero,_Q) == READY then
+					CastTargetSpell(target,_Q)
+				end
+			end
+			if Config.R and ValidTarget(target,RRange) and IsInDistance(myHero,RRange) then
+				local RPred = GetPredictionForPlayer(myHeroPos, target,GetMoveSpeed(target),1400,250,RRange,55,true,true)
+				if CanUseSpell(myHero,_R) == READY then
+					CastSkillShot(_R,RPred.PredPos.x,RPred.PredPos.y,RPred.PredPos.z)
+				end
+			end
 		end
 	else
 	DrawText(string.format("%s not suported", GetObjectName(myHero)),24,750,50,0xffffff00)
