@@ -1,7 +1,6 @@
-require('OLDInspired')
+require('Inspired')
 require('twgank')
 require('IAC')
-require('WardJump')
 
 myIAC = IAC()
 minionTable = {}
