@@ -515,7 +515,7 @@ local tarAttackRange = GetRange(target)
 			end
 			if Config.R and ValidTarget(target,RRange) and IsInDistance(myHero,RRange) then
 				local RPred = GetPredictionForPlayer(myHeroPos, target,GetMoveSpeed(target),1400,250,RRange,55,true,true)
-				if CanUseSpell(myHero,_R) == READY and GotBuff(myHero,"pyromania") == 0 then
+				if CanUseSpell(myHero,_R) == READY then
 					CastSkillShot(_R,RPred.PredPos.x,RPred.PredPos.y,RPred.PredPos.z)
 				end
 			end
