@@ -611,7 +611,7 @@ local tarAttackRange = GetRange(target)
 	elseif GetObjectName(myHero) == "MasterYi" then
 	local baseAS = GetAttackSpeed(myHero)
 	local baseDMG = GetBaseDamage(myHero)
-	local RskillAS = 0.65 * (GetAttackSpeed(myHero) + 0.65 * (GetCastLevel(myHero,_R)*0.25)+0.05)
+	local RskillAS = 0.65 * (GetAttackSpeed(myHero) + 0.65 * ((GetCastLevel(myHero,_R)*0.25)+0.05))
 	local Rdmg = (10*RskillAS)*baseDMG 
 		if Config.Q and ValidTarget(target, QRange) then
 			if CanUseSpell(myHero, _Q) == READY then
