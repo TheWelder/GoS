@@ -1,4 +1,4 @@
-require('OLDInspired')
+require('Inspired')
 
 local info = "TWGank Loaded"
 local upv = "If you like UpVote!"
