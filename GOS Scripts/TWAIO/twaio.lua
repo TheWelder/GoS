@@ -1,8 +1,7 @@
 require('Inspired')
 require('twgank')
-require('IAC')
-
-myIAC = IAC()
+--require('IAC')
+--myIAC = IAC()
 minionTable = {}
 
 local upv = "If you like UpVote!"
@@ -23,6 +22,7 @@ Config.addParam("R", "Use R", SCRIPT_PARAM_ONOFF, true)
 Config.addParam("Combo", "Combo", SCRIPT_PARAM_KEYDOWN, string.byte(" "))
 
 OnLoop(function(myHero)
+
 local myHero = GetMyHero()
 local myHeroPos = GetOrigin(myHero)
 local QRange = GetCastRange(myHero,_Q)
@@ -462,15 +462,15 @@ local tarAttackRange = GetRange(target)
 					CastSpell(_E)
 				end
 			end	
-			if Config.R and ValidTarget(target,myAttackRange) then
+			if Config.R and ValidTarget(target,QRange) then
 				if CalcDamage(myHero, target, Rdmg) > GetCurrentHP(target) + GetHPRegen(target) then
-					if CanUseSpell(myHero,_R) == READY and CanUseSpell(myHero,_E) == READY then
+					if CanUseSpell(myHero,_R) == READY then
 						CastSpell(_R)
 					end
 				end
 			end
 		end
-		if Config.W and GetCurrentHP(myHero)/GetMaxHP(myHero) < 20 then 
+		if Config.W and GetCurrentHP(myHero)/GetMaxHP(myHero) < 0.20 then 
 			if CanUseSpell(myHero,_W) == READY then
 				CastSpell(_W)
 			end
